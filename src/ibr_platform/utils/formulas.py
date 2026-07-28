@@ -23,7 +23,6 @@ All FREE — pure Python + numpy, no paid libraries.
 from __future__ import annotations
 
 import math
-from typing import Any
 
 import numpy as np
 
@@ -134,11 +133,11 @@ def pagerank(
     if n == 0:
         return {}
 
-    pr: dict[str, float] = {node: 1.0 / n for node in nodes}
+    pr: dict[str, float] = dict.fromkeys(nodes, 1.0 / n)
 
     # Build in-links
     in_links: dict[str, list[str]] = {node: [] for node in nodes}
-    out_degree: dict[str, int] = {node: 0 for node in nodes}
+    out_degree: dict[str, int] = dict.fromkeys(nodes, 0)
 
     for source, targets in adjacency.items():
         for target in targets:

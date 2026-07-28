@@ -1,5 +1,6 @@
 """Tests for Section 28 — Compliance (GDPR, SOC2, HIPAA, EU AI Act)."""
 from __future__ import annotations
+
 import pytest
 
 

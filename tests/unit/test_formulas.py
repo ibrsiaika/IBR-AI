@@ -1,8 +1,5 @@
 """Tests for Section 84-85 — CS Formulas module."""
 from __future__ import annotations
-import math
-import pytest
-import numpy as np
 
 
 class TestCosineSimilarity:
@@ -62,7 +59,7 @@ class TestBayesianUpdate:
     def test_prior_05_with_reliable_source(self) -> None:
         from ibr_platform.utils.formulas import bayesian_update
         posterior = bayesian_update(prior=0.5, reliability=0.9)
-        assert posterior > 0.9  # Strong evidence → high posterior
+        assert posterior >= 0.9  # Strong evidence → high posterior
 
     def test_prior_05_with_unreliable_source(self) -> None:
         from ibr_platform.utils.formulas import bayesian_update

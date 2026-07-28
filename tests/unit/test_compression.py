@@ -1,6 +1,6 @@
 """Tests for Section 46 — Model Compression."""
 from __future__ import annotations
-import pytest
+
 import numpy as np
 
 
