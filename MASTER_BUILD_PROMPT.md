@@ -1140,7 +1140,7 @@ The user requested commits be pushed one by one. Strategy:
 - Each push should be a logical unit of work
 
 19.5. TOKEN SECURITY (CRITICAL)
-- The token shared in chat (ghp_XXXX_REDACTED) is COMPROMISED
+- The token shared in chat (ghp_XXXX... REDACTED FOR SECURITY) is COMPROMISED
 - The user MUST revoke it at https://github.com/settings/tokens
 - The user MUST create a new token
 - The new token MUST NOT be shared in chat

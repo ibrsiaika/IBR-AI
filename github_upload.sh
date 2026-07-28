@@ -55,7 +55,7 @@ case "${1:-help}" in
         echo ""
         echo "  2. Revoke the OLD token (compromised in chat):"
         echo "     - Go to: https://github.com/settings/tokens"
-        echo "     - DELETE the token starting with ghp_h5Lt..."
+        echo "     - DELETE the old compromised token (ghp_XXXX...)"
         echo ""
         echo "  3. Create a NEW token:"
         echo "     - Go to: https://github.com/settings/tokens/new"

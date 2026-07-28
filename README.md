@@ -1,113 +1,203 @@
-# IBR Platform Bundle
+# IBR Platform
 
-This bundle contains everything needed to build the IBR Platform based on the comprehensive PRD.
+> **Intelligent Brain Runtime** — Autonomous Agentic AI Research & Self-Improving Foundation Model Platform
 
-## Contents
+**Version**: 0.1.0
+**Status**: Pre-Alpha (Section 32 — System Design implemented)
+**License**: Proprietary — Private Property, Not For Sale
+
+## ⚠️ Proprietary Notice
+
+This software is the private property of **ibrsiaika**. It is NOT open source.
+No license is granted to use, copy, modify, or distribute this software.
+This software is NOT for sale. Unauthorized use, copying, or distribution
+is strictly prohibited.
+
+## Overview
+
+The IBR Platform is an autonomous agentic AI research and self-improving
+foundation model platform. It is designed to:
+
+- Conduct autonomous internet research
+- Read and understand PDFs, books, code, videos, APIs, and databases
+- Plan multi-step reasoning with verifiable citations
+- Create training datasets automatically
+- Train and fine-tune specialized models
+- Continuously learn from new information
+- Run multiple AI agents collaboratively
+- Build specialized expert models
+- Operate safely with human oversight
+
+The platform is **CPU-first** — every component runs on commodity CPU hardware,
+with GPU acceleration as an optional performance layer. This enables deployment
+from a laptop to a datacenter cluster.
+
+## Documentation
+
+The complete specification is in [`docs/IBR_Platform_PRD.pdf`](docs/IBR_Platform_PRD.pdf)
+— a 224-page document with 107 sections across 6 parts:
+
+- **Part I** (Sections 1-29): Product Requirements Document
+- **Part II** (Sections 30-44): Phase-by-Phase Engineering Specifications
+- **Part III** (Sections 45-59): Verified Research on Compression & Golden Tokens
+- **Part IV** (Sections 60-75): Extended Research on Protocols & Infrastructure
+- **Part V** (Sections 76-91): Empirical Tests & CS Formulas
+- **Part VI** (Sections 92-107): Claude, Compact Models, Data Optimization
+
+Additional documentation:
+- [Architecture Guide](docs/architecture.md)
+- [ADR-0001: Technology Stack](docs/adr/0001-technology-stack-and-project-structure.md)
+- [Section 32 Research](docs/research/section_32_research.md)
+- [Master Build Prompt](MASTER_BUILD_PROMPT.md) — Instructions for AI engineering agents
+
+## Quick Start
+
+### Prerequisites
+
+- Python 3.11+
+- pip
+- git
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/ibrsiaika/IBR-AI.git
+cd IBR-AI
+
+# Install in development mode
+pip install -e ".[dev]"
+
+# Verify installation
+python -c "import ibr_platform; print(ibr_platform.__version__)"
+# Output: 0.1.0
+```
+
+### Run Tests
+
+```bash
+# Run all unit tests
+make test-unit
+
+# Run with coverage
+make test-cov
+
+# Run linting and type checking
+make check
+```
+
+### Usage
+
+```python
+from ibr_platform.config import settings, DeploymentMode
+from ibr_platform.agents import AgentBase, Task, AgentResult, HealthStatus
+
+# Check configuration
+print(settings.deployment_mode)  # DeploymentMode.TINY
+
+# Create a custom agent
+class MyAgent(AgentBase):
+    async def initialize(self, config):
+        self.config = config
+
+    async def execute(self, task):
+        return AgentResult(success=True, data={"result": "done"})
+
+    async def health_check(self):
+        return HealthStatus(status="healthy")
+
+    async def shutdown(self):
+        pass
+
+agent = MyAgent(name="my-agent")
+print(agent)  # <MyAgent(name='my-agent', status='pending')>
+```
+
+## Project Structure
 
 ```
-ibr_platform_bundle/
-├── MASTER_BUILD_PROMPT.md      # 1319-line AI prompt for building the project
-├── README.md                   # This file
-├── docs/
-│   ├── IBR_Platform_PRD.pdf    # 224-page comprehensive PRD (source of truth)
-│   └── IBR_Platform_PRD.docx   # Editable version of the PRD
-├── scripts/
-│   ├── generate_ibr_prd.js     # Script that generates the PRD DOCX
-│   ├── run_benchmarks.py       # 15-suite benchmark script (Part V tests)
-│   └── run_benchmarks_part6.py # 8-suite benchmark script (Part VI tests)
-└── research/
-    ├── benchmark_results.json      # 123 real measurements from Part V benchmarks
-    ├── benchmark_results_part6.json # 60+ real measurements from Part VI benchmarks
-    ├── claude_arch.json            # Claude model family research
-    ├── constitutional.json         # Constitutional AI research
-    ├── haiku.json                  # Claude Haiku 4.5 research
-    ├── phi3.json                   # Phi-3 textbook quality research
-    ├── data_opt.json               # Data optimization research
-    ├── low_resource.json           # Low-resource inference research
-    ├── gemini_flash.json           # Gemini Flash research
-    ├── llama_edge.json             # Llama 3.2 edge research
-    ├── distill.json                # Distillation research
-    ├── gptbot.json                 # OpenAI GPTBot research
-    ├── common_crawl.json           # Common Crawl research
-    ├── antibot.json                # Anti-bot bypass research
-    ├── claudebot.json              # Anthropic ClaudeBot research
-    ├── googlebot.json              # Google Googlebot research
-    ├── proxy.json                  # Proxy rotation research
-    ├── mcp.json                    # Model Context Protocol research
-    ├── gpu_sched.json              # GPU scheduling research
-    ├── cost_opt.json               # Cost optimization research
-    ├── model_reg.json              # Model registry research
-    ├── obs.json                    # LLM observability research
-    ├── rag_eval.json               # RAG evaluation research
-    ├── vectordb.json               # Vector database research
-    ├── structured.json             # Structured outputs research
-    ├── agent_mem.json              # Agent memory research
-    ├── streaming.json              # Streaming protocols research
-    ├── guardrails.json             # LLM guardrails research
-    ├── reasoning_cmp.json          # Reasoning model comparison research
-    ├── compression.json            # Model compression research
-    ├── token_opt.json              # Token optimization research
-    ├── moe.json                    # Mixture-of-Experts research
-    ├── vllm.json                   # vLLM benchmark research
-    ├── attention.json              # Attention mechanism research
-    ├── rag.json                    # Production RAG research
-    ├── kg.json                     # Knowledge graph research
-    ├── safety.json                 # LLM safety research
-    ├── agents.json                 # Agentic AI research
-    ├── embeddings.json             # Embedding model research
-    ├── reasoning.json              # Reasoning training research
-    └── cache.json                  # Semantic caching research
+IBR-AI/
+├── src/ibr_platform/          # Python source (src layout)
+│   ├── agents/                # 25+ specialist agents
+│   │   └── base.py            # AgentBase ABC, Task, AgentResult
+│   ├── config/                # Pydantic Settings configuration
+│   ├── platform/              # Core platform (runtime, kernel, scheduler)
+│   ├── api/                   # REST and gRPC APIs
+│   ├── models/                # Model definitions
+│   ├── data/                  # Dataset schemas
+│   └── utils/                 # Shared utilities
+├── tests/                     # Test suites (unit, integration, e2e, perf, security)
+├── docs/                      # Documentation (PRD PDF, ADRs, guides)
+├── infra/                     # Infrastructure (Helm, Terraform, K8s)
+├── scripts/                   # Benchmark and build scripts
+├── pyproject.toml             # Python project configuration
+├── Makefile                   # Common commands
+└── MASTER_BUILD_PROMPT.md     # AI build instructions (1319 lines)
 ```
 
-## How to Use This Bundle
+## Development
 
-### For AI Engineering Agents
+```bash
+# Install development dependencies
+make dev-install
 
-1. **Read the MASTER_BUILD_PROMPT.md FIRST** — it contains 24 sections of instructions, 12 absolute rules, and the complete workflow for building the project.
+# Run all pre-commit checks
+make pre-commit
 
-2. **Read the PDF SECOND** — `docs/IBR_Platform_PRD.pdf` is the 224-page source of truth. The AI must read it completely before writing any code.
+# Format code
+make format
 
-3. **Use the benchmark scripts** — `scripts/run_benchmarks.py` and `scripts/run_benchmarks_part6.py` contain 23 test suites with 183+ real measurements. Re-run these to validate implementation.
+# Clean build artifacts
+make clean
+```
 
-4. **Reference the research** — `research/*.json` contains 39 web search result files with 150+ cited sources. Use these for the "research before implementation" step.
+## Deployment Modes
 
-### For Human Reviewers
+The platform supports four deployment modes (PRD Section 17):
 
-- **PRD PDF**: The complete specification (224 pages, 107 sections, 6 parts)
-- **Master Prompt**: The build instructions (1319 lines, 24 sections)
-- **Benchmark Scripts**: Re-runnable tests that validate every claim
-- **Research Files**: Raw web search results for verification
+| Mode | Target | RAM | Model | Use Case |
+|------|--------|-----|-------|----------|
+| Tiny | Laptop | 2 GB | 125M-1B | Demos, single-user |
+| Compact | Workstation | 8 GB | 1B-3B | Small team |
+| Professional | Server | 32 GB | 7B-13B | Department |
+| Enterprise | Cluster | 128+ GB | 70B+ | Organization |
 
-## Document Statistics
+Configure via environment variable:
+```bash
+export IBR_DEPLOYMENT_MODE=enterprise
+```
 
-| Metric | Value |
-|---|---|
-| PDF Pages | 224 |
-| PDF Words | 63,363 |
-| PDF Sections | 107 |
-| PDF Tables | 64 |
-| PDF TOC Entries | 571 |
-| Cited Sources | 150+ |
-| Practical Patterns | 50 |
-| Empirical Tests | 70+ |
-| CS Formulas | 14 |
-| Golden Token Techniques | 23 |
-| Master Prompt Lines | 1319 |
-| Benchmark Suites | 23 |
-| Benchmark Measurements | 183+ |
+Or via YAML config:
+```python
+from ibr_platform.config import Settings
+settings = Settings.from_yaml("configs/enterprise.yaml")
+```
 
-## GitHub Repository
+## Current Status
 
-- **Username**: ibrsiaika
-- **Repository**: ibr-platform
-- **URL**: https://github.com/ibrsiaika/ibr-platform
+**Implemented**:
+- ✅ Section 32: System Design — Folder Structure & Architecture
+- ✅ AgentBase ABC with Task, AgentResult, HealthStatus, AgentRegistry
+- ✅ Configuration management (Pydantic Settings)
+- ✅ Project structure (src layout, monorepo)
+- ✅ Test infrastructure (28 unit tests passing)
+- ✅ Code quality tooling (ruff, mypy, bandit, pytest)
+- ✅ Documentation (architecture guide, ADR-0001, research notes)
 
-## Security Note
+**Pending** (per MASTER_BUILD_PROMPT.md priority order):
+- Section 31: Phase 1 — Deep Research (14 ADRs)
+- Section 10: High-Level Architecture (layer implementations)
+- Section 11: Multi-Agent Architecture (25+ agents)
+- Section 22: Security & Safety Requirements
+- Sections 33-107: All remaining sections
 
-⚠️ **NEVER commit GitHub tokens, API keys, or passwords to git.**
-⚠️ **The .gitignore must exclude .env, *.key, *.pem, credentials/, secrets/**
-⚠️ **If a secret is accidentally committed, rotate it immediately and clean git history.**
+## Contact
 
-## License
+- **Repository**: https://github.com/ibrsiaika/IBR-AI
+- **Owner**: ibrsiaika
 
-This bundle is for the IBR Platform project. See the PRD for licensing considerations.
+## Copyright
+
+© 2026 ibrsiaika. All rights reserved.
+This software is proprietary and confidential. Unauthorized use, copying,
+distribution, or modification is strictly prohibited.
