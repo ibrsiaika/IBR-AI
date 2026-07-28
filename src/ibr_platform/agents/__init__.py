@@ -33,11 +33,19 @@ from ibr_platform.agents.base import (
     get_registry,
     register_agent,
 )
+
+# Import and register all P0 agents (PRD Section 33.2)
+from ibr_platform.agents.deployment_agent import DeploymentAgent
+from ibr_platform.agents.evaluation_agent import EvaluationAgent
+from ibr_platform.agents.knowledge_graph import KnowledgeGraphAgent
 from ibr_platform.agents.lifecycle import (
     AgentInstance,
     AgentLifecycle,
 )
+from ibr_platform.agents.memory_agent import MemoryAgent
 from ibr_platform.agents.message import AgentMessage
+from ibr_platform.agents.planner import PlannerAgent
+from ibr_platform.agents.research import WebResearchAgent
 from ibr_platform.agents.roster import (
     AGENT_ROSTER,
     get_agent_info,
@@ -45,6 +53,28 @@ from ibr_platform.agents.roster import (
     list_agents_by_group,
     list_agents_by_priority,
 )
+from ibr_platform.agents.training_agent import TrainingAgent
+from ibr_platform.agents.verification import VerificationAgent
+
+# Register agents in the global registry
+
+_registry = get_registry()
+if "PlannerAgent" not in _registry.list_agents():
+    _registry.register("PlannerAgent", PlannerAgent)
+if "WebResearchAgent" not in _registry.list_agents():
+    _registry.register("WebResearchAgent", WebResearchAgent)
+if "VerificationAgent" not in _registry.list_agents():
+    _registry.register("VerificationAgent", VerificationAgent)
+if "MemoryAgent" not in _registry.list_agents():
+    _registry.register("MemoryAgent", MemoryAgent)
+if "KnowledgeGraphAgent" not in _registry.list_agents():
+    _registry.register("KnowledgeGraphAgent", KnowledgeGraphAgent)
+if "TrainingAgent" not in _registry.list_agents():
+    _registry.register("TrainingAgent", TrainingAgent)
+if "EvaluationAgent" not in _registry.list_agents():
+    _registry.register("EvaluationAgent", EvaluationAgent)
+if "DeploymentAgent" not in _registry.list_agents():
+    _registry.register("DeploymentAgent", DeploymentAgent)
 
 __all__ = [
     # Base
