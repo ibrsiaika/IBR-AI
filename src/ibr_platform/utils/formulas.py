@@ -46,7 +46,7 @@ def cosine_similarity(a: list[float], b: list[float]) -> float:
 def bm25_score(
     tf: float,
     df: int,
-    N: int,
+    n_docs: int,
     doc_len: int,
     avgdl: float,
     k1: float = 1.2,
@@ -55,9 +55,9 @@ def bm25_score(
     """BM25 scoring function.
 
     BM25(q,d) = IDF(t) * (TF*(k1+1)) / (TF + k1*(1-b+b*|d|/avgdl))
-    IDF(t) = log((N - df + 0.5) / (df + 0.5))
+    IDF(t) = log((n_docs - df + 0.5) / (df + 0.5))
     """
-    idf = math.log((N - df + 0.5) / (df + 0.5))
+    idf = math.log((n_docs - df + 0.5) / (df + 0.5))
     denom = tf + k1 * (1 - b + b * doc_len / avgdl)
     if denom == 0:
         return 0.0

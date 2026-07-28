@@ -24,13 +24,13 @@ class TestBM25:
 
     def test_bm25_returns_float(self) -> None:
         from ibr_platform.utils.formulas import bm25_score
-        score = bm25_score(tf=2, df=10, N=1000, doc_len=100, avgdl=200)
+        score = bm25_score(tf=2, df=10, n_docs=1000, doc_len=100, avgdl=200)
         assert isinstance(score, float)
 
     def test_bm25_rare_term_higher_score(self) -> None:
         from ibr_platform.utils.formulas import bm25_score
-        common = bm25_score(tf=2, df=900, N=1000, doc_len=100, avgdl=200)
-        rare = bm25_score(tf=2, df=10, N=1000, doc_len=100, avgdl=200)
+        common = bm25_score(tf=2, df=900, n_docs=1000, doc_len=100, avgdl=200)
+        rare = bm25_score(tf=2, df=10, n_docs=1000, doc_len=100, avgdl=200)
         assert rare > common
 
 
