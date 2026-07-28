@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://superlinked.com/blog/optimizing-rag-with-hybrid-search-reranking",
+    "name": "Optimizing RAG with Hybrid Search & Reranking",
+    "snippet": "Feb 10, 2025 — How combining keyword search, vector search, and semantic reranking improves RAG retrieval precision and recall.",
+    "host_name": "superlinked.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.inexture.ai/blog/advanced-rag-techniques-for-reliable-ai-architecture",
+    "name": "Advanced RAG: Hybrid Search, Modern Pipelines &",
+    "snippet": "Aug 21, 2025 — Best Practices for Production Always combine BM25 + vectors for recall & precision . Overfetch, then rerank aggressively. Track source ...",
+    "host_name": "www.inexture.ai",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@adnanmasood/hybrid-retrieval-augmented-generation-systems-for-knowledge-intensive-tasks-10347cbe83ab",
+    "name": "Hybrid Retrieval-Augmented Generation Systems for",
+    "snippet": "Hybrid RAG “blends the best of both worlds” by leveraging sparse methods for precision on crucial terms and dense methods for broader semantic ...",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/pulse/guide-build-contextual-rag-systems-hybrid-search-reranking-luong-aykmc",
+    "name": "A guide to build contextual RAG systems with hybrid",
+    "snippet": "This guide delves into the intricacies of building contextual RAG systems, focusing on integrating hybrid search and reranking techniques to optimize retrieval ...",
+    "host_name": "www.linkedin.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://towardsdatascience.com/hybrid-search-and-re-ranking-in-production-rag",
+    "name": "Hybrid Search and Re-Ranking in Production RAG",
+    "snippet": "May 12, 2026 — BM25, or Best Match 25, is one of the best methods out there. Re-ranking is doing exactly what it should, pushing the irrelevant material out ...",
+    "host_name": "towardsdatascience.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.meilisearch.com/blog/hybrid-search-rag",
+    "name": "Understanding hybrid search RAG for better AI answers",
+    "snippet": "Dec 16, 2025 — Optimizing hybrid search in a RAG system is about getting your retriever to deliver results that are both fast and accurate.",
+    "host_name": "www.meilisearch.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2604.01733v1",
+    "name": "From BM25 to Corrective RAG: Benchmarking Retrieval",
+    "snippet": "Apr 2, 2026 — We benchmark ten retrieval strategies spanning sparse, dense, hybrid fusion, cross-encoder reranking , query expansion, index augmentation, and ...",
+    "host_name": "arxiv.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.kapa.ai/blog/rag-best-practices",
+    "name": "RAG Best Practices: Lessons from 100+ Technical Teams",
+    "snippet": "Nov 11, 2024 — Production insights from implementing retrieval augmented generation at OpenAI, Docker, Langchain, CircleCI, and more.",
+    "host_name": "www.kapa.ai",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

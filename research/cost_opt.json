@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://ksingh7.medium.com/dead-cheap-llm-inferencing-in-production-75ff124b3c0b",
+    "name": "Dead Cheap LLM Inferencing in Production - Karan Singh",
+    "snippet": "We successfully power our LLM inferencing workloads in production using a robust fleet of Azure Spot GPU instances complemented by select on-demand GPU ...",
+    "host_name": "ksingh7.medium.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mirantis.com/blog/inference-costs",
+    "name": "Optimizing Inference Costs: The Complete Guide - Mirantis",
+    "snippet": "Right-size GPU instances to avoid paying for idle capacity. Use spot or preemptible capacity where fault tolerance allows, to cut hourly cost.",
+    "host_name": "www.mirantis.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2311.15566",
+    "name": "Serving Generative Large Language Models on Preemptible Instances",
+    "snippet": "This paper aims to reduce the monetary cost for serving LLMs by leveraging preemptible GPU instances on modern clouds, which offer accesses to spare GPU ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.gmicloud.ai/en/blog/best-gpu-cloud-for-llm-training-in-2025-why-gmi-cloud-outperforms-hyperscalers",
+    "name": "‍Best GPU Cloud for LLM Training in 2025: Why GMI Cloud Outp",
+    "snippet": "Preemptible Instances for Savings Spot instances can reduce costs by 50–70%. Save checkpoints every 1–2 hours Automatically resume training. ...",
+    "host_name": "www.gmicloud.ai",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://repost.aws/questions/QU5GO1pICeTrWIvHAQK8W_Zw/what-are-the-cost-effective-options-for-on-demand-api-of-fine-tuned-llm-with-gpu",
+    "name": "What are the cost effective options for on-demand API of fine tuned",
+    "snippet": "For on-demand, cost-effective inference of your fine-tuned LLaMA model: EC2 spot instances with GPU is a strong option for cost-efficiency.",
+    "host_name": "repost.aws",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://introl.com/blog/inference-unit-economics-true-cost-per-million-tokens-guide",
+    "name": "Inference Unit Economics: The True Cost Per Million Tokens - Introl",
+    "snippet": "December 2025 Update: LLM inference costs declined 10x annually—faster than PC compute or dotcom bandwidth. GPT-4 equivalent performance now ...",
+    "host_name": "introl.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.spheron.network/blog/gpu-cost-optimization-playbook",
+    "name": "The GPU Cloud Cost Optimization Playbook: How to Cut Your AI",
+    "snippet": "Every GPU cloud provider offers some variation of three pricing models: on-demand, reserved, and spot (or preemptible) instances. The single ...",
+    "host_name": "www.spheron.network",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=9tvJ_GYJA-o",
+    "name": "Mastering LLM Inference Optimization From Theory to Cost Effective",
+    "snippet": "Would love to see a follow-up on how these optimizations interact in multi-agent production deployments. 34:14.",
+    "host_name": "www.youtube.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

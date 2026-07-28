@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/html/2502.10424v1",
+    "name": "Self-Speculative Decoding with Hierarchical Quantized KV",
+    "snippet": "Feb 5, 2025 — Speculative decoding has become an important technique for improving the inference efficiency of LLMs. It uses a smaller draft model to rapidly ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://boringbot.substack.com/p/kv-caching-and-speculative-decoding",
+    "name": "KV Caching and Speculative Decoding - The Production Gap",
+    "snippet": "Speculative Decoding uses a small, fast model to generate multiple tokens at once , then verifies them with the full model. Together, they can ... Read more",
+    "host_name": "boringbot.substack.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/isham-rashik-5a547711b_llminference-speculativedecoding-aiengineering-activity-7462005633291313152-Xz8K",
+    "name": "Speculative Decoding Speeds Up LLM Inference",
+    "snippet": "The key enabler behind efficient inference is \" KV Cache \". ▪️ In Transformer attention, every token produces Query (Q), Key (K), and Value (V) ... Read more",
+    "host_name": "www.linkedin.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.morphllm.com/llm-inference-optimization",
+    "name": "LLM Inference Optimization: Cut Cost & Latency at Every",
+    "snippet": "Speculative decoding adds a small, fast draft model that proposes multiple tokens ahead . Speculative decoding uses a small, fast draft model to propose ...",
+    "host_name": "www.morphllm.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=_quDGLpNols",
+    "name": "KV Caching: Speeding up LLM Inference [Lecture]",
+    "snippet": "How to make LLMs fast : KV Caching, Speculative Decoding, and Multi-Query Attention | Cursor Team Lex Clips•14K views",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization",
+    "name": "Mastering LLM Techniques: Inference Optimization",
+    "snippet": "Nov 17, 2023 — One common optimization for the decode phase is KV caching. The decode phase generates a single token at each time step, but each token depends ... Read more",
+    "host_name": "developer.nvidia.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@rjekstein/speculative-decoding-accelerating-llm-inference-without-quality-degradation-0233510794e1",
+    "name": "Speculative Decoding: Accelerating LLM Inference Without",
+    "snippet": "Speculative decoding represents a paradigm shift in LLM inference optimization , achieving 2–3x latency improvements while maintaining ...",
+    "host_name": "medium.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://machinelearning.apple.com/research/quantspec",
+    "name": "Self-Speculative Decoding with Hierarchical Quantized KV",
+    "snippet": "Jul 11, 2025 — speculative decoding is a widely accepted technique to accelerate autoregressive decoding, to inefficient KV cache optimization strategies. LLM ...",
+    "host_name": "machinelearning.apple.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://zylos.ai/research/2026-01-11-ai-inference-optimization",
+    "name": "AI Inference Optimization Techniques (2025-2026)",
+    "snippet": "Jan 11, 2026 — Speculative Decoding. How It Works. Speculative decoding accelerates LLM inference by using a smaller \"draft\" model to predict multiple tokens ... Read more",
+    "host_name": "zylos.ai",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2605.19893v1",
+    "name": "SpecSA: Bridging Speculative Decoding and Sparse",
+    "snippet": "May 19, 2026 — Speculative decoding and dynamic sparse attention are two complementary approaches for accelerating long-context LLM inference: the former ...",
+    "host_name": "arxiv.org",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

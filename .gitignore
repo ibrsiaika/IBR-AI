@@ -1,0 +1,214 @@
+# IBR Platform .gitignore
+# Copy this file to the project root as .gitignore
+
+# ============================================
+# SECRETS — NEVER COMMIT THESE
+# ============================================
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials/
+secrets/
+secrets.json
+config/secrets.*
+**/secrets.yaml
+**/secrets.yml
+
+# GitHub tokens (in case of accidental paste)
+*.token
+ghp_*
+gho_*
+ghu_*
+ghs_*
+ghr_*
+
+# API keys (common patterns)
+*api_key*
+*apikey*
+*api-key*
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Testing
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Linting
+.ruff_cache/
+.eslintcache
+
+# ============================================
+# NODE.JS
+# ============================================
+node_modules/
+.next/
+out/
+build/
+dist/
+.npm
+.pnp*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ============================================
+# IDE
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# OS
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================
+# PROJECT-SPECIFIC
+# ============================================
+
+# Data directories (never commit data)
+data/
+datasets/
+*.csv
+*.tsv
+*.parquet
+*.arrow
+!tests/fixtures/*.csv
+
+# Model files (never commit models)
+models/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+*.tar.gz
+!docs/**/*.png
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Docker
+docker-compose.override.yml
+
+# Kubernetes secrets
+*-secret.yaml
+*-secret.yml
+
+# Helm
+infra/helm/charts/
+infra/helm/*.tgz
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# Build artifacts
+*.tar
+*.tar.gz
+*.zip
+*.rar
+!bundle/*.zip
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Lock files (keep package-lock.json and poetry.lock, ignore others)
+yarn.lock
+pnpm-lock.yaml
+# Note: keep package-lock.json and poetry.lock committed

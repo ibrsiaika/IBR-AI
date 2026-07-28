@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://friendli.ai/blog/moe-models-comparison",
+    "name": "Comparing 2025's Leading Mixture-of-Experts AI Models",
+    "snippet": "Aug 26, 2025 — In this post, we explain briefly about what MoE is and compare several state-of-the-art MoE models released in 2025 , including GPT-OSS(20B/120B) ...\nAug 26, 2025 — In the context of transformer models, a Mixture-of-Experts(MoE) architecture consists of two main elements: ... DeepSeek, Qwen, Gemma , and more— ... Read more",
+    "host_name": "friendli.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cameronrwolfe.substack.com/p/moe-llms",
+    "name": "Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.",
+    "snippet": "The DeepSeek MoE models are a bit different than prior models , as they slightly modify the underlying transformer block to boost performance ...\nThe DeepSeek MoE models are a bit different than prior models, as they slightly modify the underlying transformer block to boost performance ...",
+    "host_name": "cameronrwolfe.substack.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.facebook.com/groups/698593531630485/posts/1214240673399099",
+    "name": "How mixture of experts models like deepseek-v3 work",
+    "snippet": "DeepSeek employs a \"Mixture of Experts\" (MoE) technique , which allows the AI to activate only relevant parameters for specific queries, ...",
+    "host_name": "www.facebook.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1oqttg0/can_someone_explain_what_a_mixtureofexperts_model",
+    "name": "Can someone explain what a Mixture-of-Experts model",
+    "snippet": "Hello, I've been aware of MoE since Deepseek dropped in the beginning of the year but I never really delved deep into what it is and how it helps in things ...",
+    "host_name": "www.reddit.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mindstudio.ai/blog/gemma-4-mixture-of-experts-architecture-explained",
+    "name": "What Is Gemma 4's Mixture of Experts Architecture? How",
+    "snippet": "Apr 7, 2026 — The MoE variant uses a specific configuration that pushes efficiency while maintaining competitive quality. 128 Experts , 8 Active Per Token.\nApr 7, 2026 — Gemma 4's MoE model has 128 experts with 8 active per token , giving you 27B-level intelligence at 4B compute cost. Here's the architecture ...",
+    "host_name": "www.mindstudio.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison",
+    "name": "The Big LLM Architecture Comparison - Ahead of AI",
+    "snippet": "Jul 19, 2025 — As discussed earlier, other models like Deepseek V3/R1 use a Mixture-of-Experts ( MoE ) architecture to reduce memory requirements at inference, ...",
+    "host_name": "magazine.sebastianraschka.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://discuss.huggingface.co/t/deepseek-architecture-series-moe-implementation/143327",
+    "name": "DeepSeek Architecture Series: MoE Implementation",
+    "snippet": "Feb 28, 2025 — DeepSeek MoE is a specialized Mixture of Experts architecture that improves upon previous MoE designs like GShard and Switch Transformers.",
+    "host_name": "discuss.huggingface.co",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2507.17702v1",
+    "name": "Scaling Laws for Efficient Mixture-of-Experts Language",
+    "snippet": "Jul 20, 2025 — Mixture-of-Experts ( MoE ) has become a dominant architecture for scaling Large Language Models (LLMs) efficiently by decoupling total parameters ...",
+    "host_name": "arxiv.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

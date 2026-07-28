@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.anyscale.com/blog/continuous-batching-llm-inference",
+    "name": "Achieve 23x LLM Inference Throughput & Reduce p50",
+    "snippet": "Jun 22, 2023 — We'll introduce continuous batching and discuss benchmark results for existing batching systems such as HuggingFace's text-generation-inference and vLLM.",
+    "host_name": "www.anyscale.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.spheron.network/blog/llm-serving-optimization-continuous-batching-paged-attention",
+    "name": "Continuous Batching, PagedAttention, and Chunked Prefill",
+    "snippet": "Apr 4, 2026 — Continuous batching , PagedAttention , and chunked prefill explained with H100 benchmarks and vLLM config. Practical guide for ML engineers ...",
+    "host_name": "www.spheron.network",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2511.17593v1",
+    "name": "A Performance Study of vLLM and HuggingFace TGI",
+    "snippet": "Nov 17, 2025 — Our experiments reveal that vLLM achieves up to 24x higher throughput than TGI under high-concurrency workloads through its novel PagedAttention ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.runpod.io/articles/guides/vllm-pagedattention-continuous-batching",
+    "name": "vLLM Explained: PagedAttention and Continuous Batching",
+    "snippet": "Apr 22, 2026 — Learn how vLLM boosts LLM inference performance with PagedAttention and continuous batching . This guide covers KV cache optimization, ...",
+    "host_name": "www.runpod.io",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://vllm.ai/blog",
+    "name": "Blog",
+    "snippet": "How vLLM's inference engine works, covering PagedAttention , continuous batching , benchmarking for high- throughput LLM workloads. continuous batching for lower ...",
+    "host_name": "vllm.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/vrushali-ranadive-79437a20a_vllm-llm-ai-activity-7447324151654195200-gY1A",
+    "name": "vLLM Benchmarking: PagedAttention and Continuous",
+    "snippet": "Apr 7, 2026 — Continuous Batching : 38–39× higher throughput for small batches, 22.5× at batch 50;",
+    "host_name": "www.linkedin.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://tianpan.co/blog/2026-04-09-continuous-batching-llm-inference",
+    "name": "Continuous Batching: The Single Biggest GPU Utilization",
+    "snippet": "Apr 9, 2026 — LMSYS benchmarks showed SGLang achieving up to 3.1x higher throughput than vLLM on Llama-70B in 2024 . Critical configuration parameters for vLLM ...",
+    "host_name": "tianpan.co",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mdpi.com/2076-3417/16/11/5435",
+    "name": "Benchmarking Ollama and vLLM for Concurrent LLM Serving",
+    "snippet": "2026 — We observed that vLLM's PagedAttention and continuous batching turn concurrent demand into real generation throughput much better than Ollama's llama.cpp ...",
+    "host_name": "www.mdpi.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

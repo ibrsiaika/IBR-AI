@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://www.meta-intelligence.tech/en/insight-quantization",
+    "name": "Run 70B LLMs in 4 Bits — INT8, GPTQ, AWQ & GGUF [2026]",
+    "snippet": "Oct 12, 2025 — Quantization has the lowest adoption barrier among the three major model compression techniques ( quantization , pruning , distillation ). Read more\nOct 12, 2025 — Quantization has the lowest adoption barrier among the three major model compression techniques (quantization, pruning, distillation).",
+    "host_name": "www.meta-intelligence.tech",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/pulse/demystifying-llm-quantization-gptq-awq-gguf-explained-xiao-fei-zhang-1lmbe",
+    "name": "Demystifying LLM Quantization: GPTQ, AWQ, and GGUF",
+    "snippet": "Both GPTQ and AWQ change the original. GPTQ is a post-training method that compresses model weights into INT8 or INT4.\nlike GPTQ, AWQ, and GGUF. GPTQ is a post-training method that compresses model weights into INT8 or INT4 . How it works: A small calibration ...",
+    "host_name": "www.linkedin.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://newsletter.maartengrootendorst.com/p/which-quantization-method-is-right",
+    "name": "Which Quantization Method is Right for You? (GPTQ vs. GGUF",
+    "snippet": "Nov 13, 2023 — There are several differences between AWQ and GPTQ as methods but the most important one is that AWQ assumes that not all weights are equally ... Read more\nNov 13, 2023 — In this tutorial, we will explore pre-quantized Large Language Models using various techniques . (GPTQ vs. GGUF vs. AWQ)",
+    "host_name": "newsletter.maartengrootendorst.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=WmvZwR4rKJg",
+    "name": "LLM Quantization Explained: GPTQ, AWQ, QLoRA, GGUF and",
+    "snippet": "You'll learn the core quantization equations, the tradeoff between accuracy and compression ,\nWhether you're into machine learning, AI engineering, LLM inference, model compression , or running local LLMs, this is a complete visual guide ...",
+    "host_name": "www.youtube.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cast.ai/blog/demystifying-quantizations-llms",
+    "name": "LLM Quantization Methods: GPTQ, AWQ, GGUF",
+    "snippet": "Mar 17, 2026 — This guide explains quantization from its early use in neural networks to today's LLM -specific techniques like GPTQ , SmoothQuant, AWQ , and GGUF .\nMar 17, 2026 — This guide explains quantization from its early use in neural networks to today's LLM-specific techniques like GPTQ, SmoothQuant, AWQ , and GGUF ...\nMar 17, 2026 — This guide explains quantization from its early use in neural networks to today's LLM-specific techniques like GPTQ, SmoothQuant, AWQ, and GGUF .",
+    "host_name": "cast.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@siddharth.vij10/llm-quantization-gptq-qat-awq-gguf-ggml-ptq-2e172cd1b3b5",
+    "name": "LLM Quantization | GPTQ | QAT | AWQ | GGUF | GGML | PTQ",
+    "snippet": "This write-up is about various Quantization techniques that you keep hearing in LLM discussions. The intention here is to provide a step by step explanation ... Read more",
+    "host_name": "medium.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pub.towardsai.net/i-tested-gguf-vs-awq-vs-gptq-the-fastest-4-bit-collapses-on-code-at-46-d65c271d7cdf",
+    "name": "I Tested GGUF vs AWQ vs GPTQ: The \"Fastest\" 4-Bit",
+    "snippet": "Jun 22, 2026 — AWQ significantly outperformed GPTQ and round-to-nearest on the MBPP code benchmark — and that 4-bit AWQ models actually showed a 6% reduction ...",
+    "host_name": "pub.towardsai.net",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://localaimaster.com/blog/quantization-explained",
+    "name": "GGUF vs GPTQ vs AWQ 2026: Which Quantization Should",
+    "snippet": "Oct 28, 2025 — GGUF vs GPTQ vs AWQ explained: GGUF Q4_K_M keeps 92% quality (best for Ollama). AWQ retains 95%. GPTQ for pure GPU inference.",
+    "host_name": "localaimaster.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.nature.com/articles/s44387-026-00072-8",
+    "name": "Phase transitions in large language model compression",
+    "snippet": "2026 · Cited by 3 — We analyze structural, numerical, and algebraic redundancy across pruning , quantization , and low-rank decomposition techniques . These sources ... Read more",
+    "host_name": "www.nature.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@kimdoil1211/speeding-up-large-language-models-a-deep-dive-into-gptq-and-awq-quantization-0bb001eaabd4",
+    "name": "A Deep Dive into GPTQ and AWQ Quantization | by Doil Kim",
+    "snippet": "Learn how GPTQ and AWQ quantization reduce memory usage and speed up large language model inference for efficient LLM deployment at scale.",
+    "host_name": "medium.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1i67gzr/deepseek_r1_vs_o1_vs_claude_35_sonnet_round_1",
+    "name": "DeepSeek R1 vs o1 vs Claude 3.5 Sonnet: Round 1 Code",
+    "snippet": "R1's inference speed is on par with o1 . DeepSeek's API doesn't serve nearly as many requests as OpenAI ) o1 leans towards matching existing code ...\nR1's inference speed is on par with o1 (for now, since DeepSeek's API doesn't serve nearly as many requests as OpenAI)\nR1's inference speed is on par with o1 . Sonnet defaults to it's learned patterns (injecting variables and JS args) , whereas o1 leans towards ...",
+    "host_name": "www.reddit.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.vellum.ai/blog/claude-3-7-sonnet-vs-openai-o1-vs-deepseek-r1",
+    "name": "Claude 3.7 Sonnet vs OpenAI o1 vs DeepSeek R1 - Vellum",
+    "snippet": "Feb 25, 2025 — OpenAI's o1 didn't perform much better. barely ahead of DeepSeek R1's 29/50. 18/28, while OpenAI's models struggled.",
+    "host_name": "www.vellum.ai",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/pulse/deepseek-r1-vs-openai-4o-claude-35-sonnet-llama-33-analysis-luong-qiabc",
+    "name": "DeepSeek R1 vs. OpenAI 4o vs. Claude 3.5 Sonnet",
+    "snippet": "DeepSeek R1 is slightly behind , Claude 3.5 Sonnet leads in this challenging reasoning benchmark, followed by DeepSeek R1.",
+    "host_name": "www.linkedin.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.prompthub.us/blog/deepseek-r-1-model-overview-and-how-it-ranks-against-openais-o1",
+    "name": "DeepSeek R-1 Model Overview and How it Ranks Against",
+    "snippet": "Oct 23, 2025 — DeepSeek R1 outperformed o1, Claude 3.5 Sonnet and other models in the majority of reasoning benchmarks; o1 was the best-performing model in ...\no1 was the best-performing model in ... Read more",
+    "host_name": "www.prompthub.us",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://news.ycombinator.com/item?id=42828167",
+    "name": "For those who haven't realized it yet, Deepseek-R1 is",
+    "snippet": "Deepseek-R1 is better than claude 3.5 and better than OpenAI o1-pro, better than Gemini. It is simply smarter -- a lot less stupid, more careful, more astute, ...",
+    "host_name": "news.ycombinator.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aitoolsrecap.com/Comparisons/deepseek-r1-vs-openai-o1-vs-claude-3-5-sonnet",
+    "name": "DeepSeek R1 vs OpenAI o1 vs Claude (2026): Which AI",
+    "snippet": "Mar 17, 2026 — DeepSeek R1 is the best value reasoning model — matches o1 on benchmarks at 20x lower cost. o1 wins on the very hardest problems. Claude 3.5 ...\nMar 17, 2026 — DeepSeek R1 is the best value reasoning model — matches o1 on benchmarks at 20x lower cost. o1 wins on the very hardest problems. Claude 3.5 ... Read more",
+    "host_name": "aitoolsrecap.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

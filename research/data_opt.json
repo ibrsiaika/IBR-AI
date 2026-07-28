@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://arxiv.org/html/2503.07879v2",
+    "name": "Datasets, Documents, and Repetitions: The Practicalities of",
+    "snippet": "Data filtering has become a powerful tool for improving model performance while reducing computational cost. Data filtering reduces the dataset ...\nNov 6, 2025 — Data filtering has become a powerful tool for improving model performance while reducing computational cost. Data filtering reduces the dataset ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pub.towardsai.net/data-quality-and-filtering-at-scale-for-training-large-language-models-ab747b69b6c9",
+    "name": "Data Quality and Filtering at Scale for Training Large",
+    "snippet": "The FED framework from a 2025 paper achieves 58x speedup over CPU-based tools by optimizing for GPU architectures, completing deduplication of ...\nNov 5, 2025 — It's about understanding what makes text valuable for learning , then systematically identifying and preserving that value at a massive scale.",
+    "host_name": "pub.towardsai.net",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/haolpku/Awesome-LLM-Data-Preparation",
+    "name": "haolpku/Awesome-LLM-Data-Preparation",
+    "snippet": "Data Preparation for Large Language Models — a curated companion to our JCST 2026 survey. Covers Pre-training, Continual Pre-training, and Post-training ...",
+    "host_name": "github.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://braindrip.blog/courses/llm-evolution/13-training-innovation-threads/02-the-data-quality-revolution",
+    "name": "The Data Quality Revolution — LLM Evolution",
+    "snippet": "The Quality Era (2023-2025) treating data as an essentially unlimited resource that just needed basic deduplication and language filtering. Curriculum learning ...\nTheir pipeline included URL filtering , language detection, quality scoring using a classifier trained on Wikipedia-like text, deduplication at both exact and ...",
+    "host_name": "braindrip.blog",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1lduxn0/new_paper_alert_curriculum_learning_boosts_llm",
+    "name": "Curriculum Learning Boosts LLM Training Efficiency!",
+    "snippet": "Over 200+ pretraining runs analyzed in this large-scale study exploring Curriculum Learning (CL) as an alternative to random data sampling.",
+    "host_name": "www.reddit.com",
+    "rank": 4,
+    "date": "Jul 28, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2025.findings-acl.1091.pdf",
+    "name": "LLMs Should Always Be Pretrained on Their Preferred Data",
+    "snippet": "by X Zhang · 2025 · Cited by 19 — This establishes a natural curriculum learning prin- ciple for the pretraining: begin with low-PD data and progress to high-PD data. Following ...",
+    "host_name": "aclanthology.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

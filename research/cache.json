@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://redis.io/blog/prompt-caching-vs-semantic-caching",
+    "name": "Prompt caching vs semantic caching: How to make AI",
+    "snippet": "Dec 9, 2025 — Learn how prompt caching and semantic caching work, when to use each, and how Redis LangCache speeds up AI agents while cutting LLM costs.",
+    "host_name": "redis.io",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/andrewyng_new-course-announcement-semantic-caching-activity-7396990910988943360-B-1t",
+    "name": "Learn Semantic Caching for AI Agents with Redis",
+    "snippet": "Semantic caching can significantly reduce your AI application's inference costs and latency. cache hits skip LLM calls entirely, Production ...",
+    "host_name": "www.linkedin.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.spheron.network/blog/semantic-cache-llm-inference-gpu-cloud",
+    "name": "Semantic Caching for LLM Inference: GPTCache, Redis",
+    "snippet": "Apr 23, 2026 — This post covers the three caching layers, how to pick the right tool, and how to deploy a co-located cache plus inference stack on a single GPU ... Read more\nApr 23, 2026 — Semantic caching cuts LLM inference costs 30-70 % by reusing similar query results. This guide covers GPTCache vs Redis vector cache, ...",
+    "host_name": "www.spheron.network",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LLMDevs/comments/1k1fshi/semantic_caching",
+    "name": "Semantic caching? : r/LLMDevs",
+    "snippet": "For those of you processing high volume requests or tokens per month, do you use semantic caching?\n\nIf you're not familiar, what I mean is caching prompts ...",
+    "host_name": "www.reddit.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.truefoundry.com/blog/semantic-caching-ai-gateway",
+    "name": "Semantic Caching for LLMs: Beyond Prefix Caching",
+    "snippet": "Jun 8, 2026 — How embedding-based semantic caching cuts LLM cost and latency, reuses identical prompts . The store on self-hosted is Redis —\nJun 8, 2026 — How embedding-based semantic caching cuts LLM cost and latency, reuses identical prompts. The store on self-hosted is Red is —",
+    "host_name": "www.truefoundry.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=LRswXEc5chE",
+    "name": "A Semantic Cache using LangChain",
+    "snippet": "Ricardo Ferreira, Developer Advocate at Redis , shows how to implement a semantic cache using LangChain. He shows how to integrate this cache ...",
+    "host_name": "www.youtube.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

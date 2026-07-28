@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+    "name": "Models overview - Claude Platform Docs",
+    "snippet": "Claude is a family of state-of-the-art large language models developed by Anthropic. This guide introduces the available models and compares their ...",
+    "host_name": "platform.claude.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/claude-3-family",
+    "name": "Introducing the next generation of Claude",
+    "snippet": "Mar 4, 2024 — The family includes three state-of-the-art models in ascending order of capability: Claude 3 Haiku , Claude 3 Sonnet , and Claude 3 Opus .",
+    "host_name": "www.anthropic.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pub.towardsai.net/claude-haiku-vs-sonnet-vs-opus-which-one-should-you-actually-use-2026-3de2b2ba03c5",
+    "name": "Claude Haiku vs Sonnet vs Opus: Which One Should You",
+    "snippet": "Jun 29, 2026 — Haiku routes and handles simple tasks, Sonnet processes the 80% of requests that need real intelligence, and Opus takes the 10–15% that demand ...",
+    "host_name": "pub.towardsai.net",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://hidekazu-konishi.com/entry/anthropic_claude_model_release_timeline.html",
+    "name": "Anthropic Claude Model Release Timeline",
+    "snippet": "May 16, 2026 — Claude Haiku 4.5 is announced, the first Haiku model to support both extended thinking and Computer Use. It matches Claude Sonnet 4's coding ...",
+    "host_name": "hidekazu-konishi.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.morphllm.com/claude-code-models",
+    "name": "Claude Code Models: Which One to Use for Every Task in 2026",
+    "snippet": "The opusplan alias uses Opus for planning and reasoning during plan mode, then automatically switches to Sonnet for code generation and implementation. simple, ...",
+    "host_name": "www.morphllm.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@whatsupai/claude-4-in-2025-why-youd-use-it-where-it-wins-and-where-it-still-falls-short-947e268ec18c",
+    "name": "Claude 4 in 2025: Why You'd Use It, Where It Wins, and",
+    "snippet": "Opus 4 — the flagship, tuned for maximal reasoning and coding . Sonnet 4 — a balanced mid-tier that keeps most capabilities but at lower cost.",
+    "host_name": "medium.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/ClaudeAI/comments/1q3in56/claude_max_subscriber_any_reason_to_use",
+    "name": "any reason to use Sonnet/Haiku over Opus 4.5 besides",
+    "snippet": "I’m on Claude Max with the higher limits, so cost isn’t really a factor for me. Trying to figure out if there’s any actual benefit to using Sonnet ...",
+    "host_name": "www.reddit.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.codegpt.co/blog/anthropic-claude-models-complete-guide",
+    "name": "Anthropic Claude Models Complete Guide - Sonnet 4.5",
+    "snippet": "Oct 25, 2025 — Anthropic's strategy positions Sonnet 4.5 as the \"brain\" of a multi-agent system . Its primary function is to \"break down a complex problem into ...",
+    "host_name": "www.codegpt.co",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

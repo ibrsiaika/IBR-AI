@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol",
+    "snippet": "Nov 25, 2024 — The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. Read more",
+    "host_name": "www.anthropic.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+    "name": "Code execution with MCP: building more efficient AI agents",
+    "snippet": "Nov 4, 2025 — The Model Context Protocol ( MCP ) is an open standard for connecting AI agents to external systems. Connecting agents to tools and data ... Read more",
+    "host_name": "www.anthropic.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18",
+    "name": "Specification",
+    "snippet": "Jun 18, 2025 — Model Context Protocol ( MCP ) is an open protocol that enables seamless integration between LLM applications and external data sources and tools . Read more",
+    "host_name": "modelcontextprotocol.io",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2601.17549v1",
+    "name": "Security Analysis of the Model Context Protocol",
+    "snippet": "Jan 24, 2026 — Anthropic's Model Context Protocol (MCP), introduced in November 2024, provides an open standard for this integration through a JSON-RPC-based ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://bytebridge.medium.com/model-context-protocol-mcp-and-agent-skills-empowering-ai-agents-with-tools-and-expertise-bd4dbe3f2f00",
+    "name": "Model Context Protocol (MCP) and Agent Skills - ByteBridge",
+    "snippet": "Anthropic's Model Context Protocol (MCP ) is an open standard designed to bridge AI models (like large language model agents) with the external  ...\nAnthropic's Model Context Protocol (MCP ) is an open standard designed to bridge AI models (like large language model agents) with the external ...",
+    "host_name": "bytebridge.medium.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://futureagi.com/blog/model-context-protocol-mcp-2025",
+    "name": "Model Context Protocol (MCP) 2026 Guide",
+    "snippet": "MCP became the de facto AI tool -use standard in 2025 -2026: Anthropic , OpenAI, and Google all adopted it. Anthropic introduced the spec in November 2024.",
+    "host_name": "futureagi.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cuttlesoft.com/blog/2025/11/25/anthropics-model-context-protocol-the-standard-for-ai-tool-integration",
+    "name": "Model Context Protocol (MCP): AI Tool Integration Standard",
+    "snippet": "Nov 25, 2025 — Anthropic released the Model Context Protocol ( MCP ), an open standard for connecting AI systems to external tools and data sources.",
+    "host_name": "cuttlesoft.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.descope.com/learn/post/mcp",
+    "name": "What Is the Model Context Protocol (MCP) and How It Works",
+    "snippet": "The Model Context Protocol ( MCP ) addresses this challenge by providing a standardized way for LLMs to connect with external data sources and tools . Read more",
+    "host_name": "www.descope.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

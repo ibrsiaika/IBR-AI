@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://atlan.com/know/llm-evaluation-frameworks-compared",
+    "name": "RAGAS, TruLens, DeepEval: LLM Evaluation Frameworks",
+    "snippet": "Apr 10, 2026 — When RAGAS scores a 0.95 faithfulness on a response, it is confirming that the generated answer faithfully reflects the retrieved content.\nApr 10, 2026 — RAGAS is purpose-built for RAG evaluation . Its metric suite covers the four core RAG dimensions (faithfulness, answer relevancy, context ...",
+    "host_name": "atlan.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://treysaddler.com/posts/rag-evaluation-frameworks-and-tracing.html",
+    "name": "RAG Evaluation Frameworks and Tracing - TreySaddler.com",
+    "snippet": "Aug 13, 2025 — A comprehensive analysis of evaluation frameworks , metrics, and tracing standards for Retrieval-Augmented Generation systems.",
+    "host_name": "treysaddler.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@alexchen3292/rag-evaluation-tools-how-to-evaluate-retrieval-augmented-generation-applications-45aba7b8ffe3",
+    "name": "RAG Evaluation Tools: How to Evaluate Retrieval",
+    "snippet": "This post will dive deeper and discuss the methodologies used to evaluate RAG applications. We'll also introduce some powerful evaluation tools and highlight ... Read more",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.trulens.org/getting_started/core_concepts/rag_triad",
+    "name": "RAG Triad",
+    "snippet": "The RAG triad is made up of 3 evaluations: context relevance , groundedness and answer relevance . Satisfactory evaluations on each provides us confidence that ... Read more",
+    "host_name": "www.trulens.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2504.14891v1",
+    "name": "Retrieval Augmented Generation Evaluation in the Era of",
+    "snippet": "This paper provides a comprehensive survey of RAG evaluation methods and frameworks , systematically reviewing traditional and emerging evaluation approaches. Read more",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.analyticsvidhya.com/blog/2026/07/rag-evaluation-frameworks",
+    "name": "RAG Evaluation Frameworks: RAGAS vs TruLens",
+    "snippet": "Jul 12, 2026 — A practical comparison of top RAG evaluation frameworks . Learn how to score and monitor your RAG pipelines using RAGAS , TruLens , ...",
+    "host_name": "www.analyticsvidhya.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.facebook.com/groups/DeepNetGroup/posts/2551410861918447",
+    "name": "Evaluating RAG pipelines with ARES framework",
+    "snippet": "RAGAS comes in — a purpose-built, open -source framework for evaluating Retrieval-Augmented Generation systems. 🔹Faithfulness and factuality ...",
+    "host_name": "www.facebook.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://apxml.com/courses/optimizing-rag-for-production/chapter-6-advanced-rag-evaluation-monitoring/rag-evaluation-frameworks-ragas-ares",
+    "name": "Advanced RAG Evaluation Frameworks (RAGAS, ARES)",
+    "snippet": "Answer Relevancy: This metric assesses how well the ... Read more",
+    "host_name": "apxml.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

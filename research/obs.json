@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arize.com/llm-evaluation-platforms-top-frameworks",
+    "name": "Comparing LLM Evaluation Platforms: Top Frameworks for",
+    "snippet": "Arize Phoenix provides deeper support for agent evaluation. It captures complete multi-step agent traces, allowing teams to assess how agents make decisions ...\nArize Ax · Arize-Phoenix",
+    "host_name": "arize.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.langchain.com/resources/langsmith-vs-arize",
+    "name": "LangSmith vs Arize: AI agent observability, evals, and",
+    "snippet": "Both LangSmith and Arize both provide tracing and evals for LLM applications and AI agents in production. However, LangSmith supports the full Agent ...\nSwitching From Arize To... · Faq",
+    "host_name": "www.langchain.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arize.com/compare/arize-vs-langsmith",
+    "name": "Arize vs. LangSmith",
+    "snippet": "LangSmith is optimized for tracing and debugging LLM workflows (especially in LangChain ecosystems), while Arize focuses on end-to-end agent observability and ...",
+    "host_name": "arize.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@shabanakhanum/navigating-the-black-box-langsmith-vs-be105b8e0844",
+    "name": "LangSmith vs. Langfuse vs. Arize AI for LLM Observability",
+    "snippet": "Phoenix (Arize's open-source companion product, distinct from Arize Cloud) has become the standard for LLM evaluation and tracing in teams that ...\nPhoenix (Arize's open-source companion product, distinct from Arize Cloud) has become the standard for LLM evaluation and tracing in teams that ...",
+    "host_name": "medium.com",
+    "rank": 3,
+    "date": "Mar 30, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://latitude.so/blog/best-llm-observability-tools-agents-latitude-vs-langfuse-langsmith",
+    "name": "Best LLM Observability Tools for AI Agents - Latitude.so",
+    "snippet": "Arize Phoenix What it does : Open-source OpenTelemetry-native observability and evaluation project from Arize AI. Provides agent trace capture, ...\nArize Phoenix What it does : Open-source OpenTelemetry-native observability and evaluation project from Arize AI. Provides agent trace capture, ...",
+    "host_name": "latitude.so",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://breyta.ai/blog/best-ai-agent-observability-tools",
+    "name": "Best AI agent observability tools in 2026 | Breyta Blog",
+    "snippet": "LangWatch's guide surveys top observability tools and evaluation libraries for 2025. It helps teams compare approaches and feature sets. Best ...",
+    "host_name": "breyta.ai",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.getmaxim.ai/articles/top-5-leading-agent-observability-tools-in-2025",
+    "name": "Top 5 Leading Agent Observability Tools in 2025",
+    "snippet": "This guide evaluates the five leading agent observability platforms in 2025: Maxim AI, Arize AI (Phoenix), LangSmith, Langfuse, and AgentOps.",
+    "host_name": "www.getmaxim.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://langwatch.ai/blog/the-4-best-llm-evaluation-platforms-in-2025-why-langwatch-eedefines-the-category-with-agent-testing-(with-simulations)",
+    "name": "The 4 Best LLM Evaluation Platforms in 2025",
+    "snippet": "Phoenix focuses primarily on observability and tracing rather than full-spectrum evaluation, excelling at diagnosing production issues across ...\n4. Arize Phoenix: The observability veteran · Excellent visual debugging for RAG and retrieval steps. · Real-time monitoring and trace analytics.",
+    "host_name": "langwatch.ai",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]
