@@ -28,7 +28,7 @@ OWASP Top 10 for LLMs 2025 (PRD Section 54, Table 54.1):
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 # ============================================
