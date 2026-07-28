@@ -1,5 +1,6 @@
 """Tests for Sections 54 + 64 — OWASP Top 10 + LLM Guardrails."""
 from __future__ import annotations
+
 import pytest
 
 
@@ -47,7 +48,7 @@ class TestGuardrails:
         assert hasattr(stack, layer)
 
     async def test_check_input_safe(self) -> None:
-        from ibr_platform.platform.safety import GuardrailStack, GuardrailResult
+        from ibr_platform.platform.safety import GuardrailResult, GuardrailStack
         stack = GuardrailStack()
         result = await stack.check_input("What is the capital of France?")
         assert isinstance(result, GuardrailResult)
