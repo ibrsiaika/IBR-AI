@@ -1,0 +1,245 @@
+{
+  "timestamp": "2026-07-29T11:33:17.765432+00:00",
+  "total_tests": 60,
+  "passed": 54,
+  "failed": 6,
+  "pass_rate": 90.0,
+  "tests": {
+    "test_text_results_file_exists": {
+      "passed": true,
+      "detail": "Found /home/z/my-project/research/scratch_model_results.json"
+    },
+    "test_text_pretrain_initial_loss_exists": {
+      "passed": true,
+      "detail": "Loss: 6.3414"
+    },
+    "test_text_pretrain_final_loss_exists": {
+      "passed": true,
+      "detail": "Loss: 4.7939"
+    },
+    "test_text_pretrain_loss_decreased": {
+      "passed": true,
+      "detail": "6.3414 \u2192 4.7939"
+    },
+    "test_text_pretrain_reduction_significant": {
+      "passed": true,
+      "detail": "24.4% reduction"
+    },
+    "test_text_perplexity_reasonable": {
+      "passed": true,
+      "detail": "PPL: 120.78"
+    },
+    "test_text_model_has_params": {
+      "passed": true,
+      "detail": "912,128 params"
+    },
+    "test_text_model_not_pretrained": {
+      "passed": true,
+      "detail": "Random init confirmed"
+    },
+    "test_text_finetune_initial_exists": {
+      "passed": true,
+      "detail": "Loss: 7.0688"
+    },
+    "test_text_finetune_final_exists": {
+      "passed": true,
+      "detail": "Loss: 4.4401"
+    },
+    "test_text_finetune_loss_decreased": {
+      "passed": true,
+      "detail": "7.0688 \u2192 4.4401"
+    },
+    "test_text_finetune_reduction_positive": {
+      "passed": true,
+      "detail": "37.2% reduction"
+    },
+    "test_scaled_results_exist": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_scaled_model_bigger": {
+      "passed": true,
+      "detail": "6,744,064 params (>1M)"
+    },
+    "test_scaled_pretrain_loss_decreased": {
+      "passed": true,
+      "detail": "7.2334 \u2192 5.0337"
+    },
+    "test_scaled_pretrain_reduction_significant": {
+      "passed": true,
+      "detail": "30.4% reduction"
+    },
+    "test_scaled_finetune_loss_decreased": {
+      "passed": true,
+      "detail": "5.7071 \u2192 4.7247"
+    },
+    "test_code_results_exist": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_code_has_data": {
+      "passed": true,
+      "detail": "220 samples"
+    },
+    "test_code_cleaning_worked": {
+      "passed": true,
+      "detail": "216 clean, 4 removed"
+    },
+    "test_code_pretrain_loss_decreased": {
+      "passed": true,
+      "detail": "5.7281 \u2192 3.6481"
+    },
+    "test_code_pretrain_reduction_significant": {
+      "passed": true,
+      "detail": "36.3% reduction"
+    },
+    "test_code_finetune_loss_decreased": {
+      "passed": true,
+      "detail": "3.8482 \u2192 3.3853"
+    },
+    "test_code_generates_text": {
+      "passed": false,
+      "detail": "Output: '...'"
+    },
+    "test_code_output_has_python_tokens": {
+      "passed": false,
+      "detail": "Found Python keywords in output"
+    },
+    "test_model_file_exists": {
+      "passed": true,
+      "detail": "3.53 MB"
+    },
+    "test_model_loads_successfully": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_model_has_state_dict": {
+      "passed": true,
+      "detail": "69 keys"
+    },
+    "test_model_has_config": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_model_config_vocab": {
+      "passed": true,
+      "detail": "Vocab: 800"
+    },
+    "test_model_config_embed_dim": {
+      "passed": true,
+      "detail": "Dim: 128"
+    },
+    "test_model_config_layers": {
+      "passed": true,
+      "detail": "Layers: 4"
+    },
+    "test_tokenizer_saved": {
+      "passed": true,
+      "detail": "800 tokens"
+    },
+    "test_model_metadata_exists": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_model_not_pretrained": {
+      "passed": true,
+      "detail": "Confirmed: NOT pre-trained"
+    },
+    "test_model_weights_loaded": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_tokenizer_rebuilt": {
+      "passed": true,
+      "detail": "Vocab: 800"
+    },
+    "test_loaded_model_generates": {
+      "passed": true,
+      "detail": "Output: 'artificialintelligencecontromethodsinpython,ring.=======...'"
+    },
+    "test_code_model_file_exists": {
+      "passed": true,
+      "detail": "3.60 MB"
+    },
+    "test_code_model_loads": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_code_model_has_weights": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_code_model_not_pretrained": {
+      "passed": true,
+      "detail": "Confirmed: NOT pre-trained"
+    },
+    "test_code_model_generates": {
+      "passed": true,
+      "detail": "Output: 'defhello(ation,):ifwillbebeted(self,at...'"
+    },
+    "test_code_model_outputs_python_keywords": {
+      "passed": true,
+      "detail": "Found Python keywords in generated code"
+    },
+    "test_training_completes": {
+      "passed": false,
+      "detail": "'final_loss'"
+    },
+    "test_api_health_check": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_model_info_before_training": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_model_not_trained_initially": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_train_pretrain": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_train_returns_loss": {
+      "passed": false,
+      "detail": ""
+    },
+    "test_api_train_pretrained_false": {
+      "passed": false,
+      "detail": ""
+    },
+    "test_api_model_info_after_training": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_model_trained": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_model_has_params": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_generate_returns_text": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_generate_has_output": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_generate_pretrained_false": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_finetune_works": {
+      "passed": true,
+      "detail": ""
+    },
+    "test_api_generate_without_training_fails": {
+      "passed": true,
+      "detail": ""
+    }
+  }
+}
