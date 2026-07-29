@@ -836,7 +836,7 @@ print("\n" + "=" * 70)
 print("STEP 9: Save Model")
 print("=" * 70)
 
-model_path = "/home/z/my-project/models/ibr_scratch_model.pt"
+model_path = "/my-project/models/ibr_scratch_model.pt"
 os.makedirs(os.path.dirname(model_path), exist_ok=True)
 
 torch.save({
@@ -873,7 +873,7 @@ print(f"  Size: {model_size:.2f} MB")
 # ============================================
 # Save Results
 # ============================================
-results_path = "/home/z/my-project/research/scratch_model_results.json"
+results_path = "/my-project/research/scratch_model_results.json"
 with open(results_path, "w") as f:
     json.dump(RESULTS, f, indent=2, default=str)
 

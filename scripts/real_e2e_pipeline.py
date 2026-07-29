@@ -251,7 +251,7 @@ print(f"  Tokens/sec: {10 / avg_time:.2f}")
 # ============================================
 # Save Results
 # ============================================
-results_path = "/home/z/my-project/research/real_e2e_results.json"
+results_path = "/my-project/research/real_e2e_results.json"
 with open(results_path, "w") as f:
     json.dump(RESULTS, f, indent=2, default=str)
 

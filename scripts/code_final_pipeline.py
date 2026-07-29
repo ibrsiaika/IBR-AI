@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 import torch, torch.nn as nn, torch.nn.functional as F
 import numpy as np
 
-sys.path.insert(0, '/home/z/my-project/ibr-platform/src')
+sys.path.insert(0, '/my-project/ibr-platform/src')
 from ibr_platform.models.scratch import BPETokenizer, ScratchGPT
 
 R = {}
@@ -18,7 +18,7 @@ print(f"Time: {datetime.now(timezone.utc).isoformat()}")
 
 # Step 1: Load cached data or download
 print("\nSTEP 1: Load Data")
-cache_path = "/home/z/my-project/research/cached_code_data.json"
+cache_path = "/my-project/research/cached_code_data.json"
 code_samples = []
 
 if os.path.exists(cache_path):
@@ -216,7 +216,7 @@ for prompt in ["def hello", "import os", "class Model"]:
 
 # Step 8: Save
 print("\nSTEP 8: Save Model")
-path = "/home/z/my-project/models/ibr_code_model.pt"
+path = "/my-project/models/ibr_code_model.pt"
 os.makedirs(os.path.dirname(path), exist_ok=True)
 torch.save({
     "model_state_dict": model.state_dict(),
@@ -227,7 +227,7 @@ torch.save({
 }, path)
 log("model_saved_mb", round(os.path.getsize(path)/1024/1024, 2))
 
-with open("/home/z/my-project/research/code_finetune_results.json", "w") as f:
+with open("/my-project/research/code_finetune_results.json", "w") as f:
     json.dump(R, f, indent=2, default=str)
 
 print(f"\n{'='*70}")

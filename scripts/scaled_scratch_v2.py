@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import torch, torch.nn as nn, torch.nn.functional as F
 import numpy as np
 
-sys.path.insert(0, '/home/z/my-project/ibr-platform/src')
+sys.path.insert(0, '/my-project/ibr-platform/src')
 from ibr_platform.models.scratch import BPETokenizer, ScratchGPT
 
 RESULTS = {}
@@ -188,7 +188,7 @@ print(f"  {avg*1000:.1f}ms avg, {10/avg:.1f} tok/s")
 
 # Step 8: Save
 print("\nSTEP 8: Save Model")
-path = "/home/z/my-project/models/ibr_scratch_scaled.pt"
+path = "/my-project/models/ibr_scratch_scaled.pt"
 os.makedirs(os.path.dirname(path), exist_ok=True)
 torch.save({
     "model_state_dict": model.state_dict(),
@@ -200,7 +200,7 @@ torch.save({
 log("model_saved_mb", round(os.path.getsize(path)/1024/1024, 2))
 
 # Save results
-with open("/home/z/my-project/research/scaled_scratch_results.json", "w") as f:
+with open("/my-project/research/scaled_scratch_results.json", "w") as f:
     json.dump(RESULTS, f, indent=2, default=str)
 
 # Summary

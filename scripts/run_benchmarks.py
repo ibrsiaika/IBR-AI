@@ -781,10 +781,10 @@ print(f"  Surface forms tested: {len(entities)}")
 
 
 # Save all results
-with open('/home/z/my-project/research/benchmark_results.json', 'w') as f:
+with open('/my-project/research/benchmark_results.json', 'w') as f:
     json.dump(RESULTS, f, indent=2)
 
 print("\n" + "=" * 70)
 print(f"ALL BENCHMARKS COMPLETE — {len(RESULTS)} measurements saved")
-print(f"Results file: /home/z/my-project/research/benchmark_results.json")
+print(f"Results file: /my-project/research/benchmark_results.json")
 print("=" * 70)

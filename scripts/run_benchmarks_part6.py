@@ -530,10 +530,10 @@ print(f"  Param efficiency (dense_params / moe_total_params): {DENSE_DIM*DENSE_D
 
 
 # Save results
-with open('/home/z/my-project/research/benchmark_results_part6.json', 'w') as f:
+with open('/my-project/research/benchmark_results_part6.json', 'w') as f:
     json.dump(RESULTS, f, indent=2)
 
 print("\n" + "=" * 70)
 print(f"PART VI BENCHMARKS COMPLETE — {len(RESULTS)} measurements saved")
-print(f"Results: /home/z/my-project/research/benchmark_results_part6.json")
+print(f"Results: /my-project/research/benchmark_results_part6.json")
 print("=" * 70)

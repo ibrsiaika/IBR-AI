@@ -20,7 +20,7 @@ import torch
 import numpy as np
 from datetime import datetime, timezone
 
-sys.path.insert(0, '/home/z/my-project/ibr-platform/src')
+sys.path.insert(0, '/my-project/ibr-platform/src')
 from ibr_platform.models.scratch import BPETokenizer, ScratchGPT, ScratchModelManager
 
 RESULTS = {}
@@ -52,7 +52,7 @@ print("TEST 1: Verify Pre-Training (Text Model)")
 print("=" * 70)
 
 # Check if results file exists
-results_path = "/home/z/my-project/research/scratch_model_results.json"
+results_path = "/my-project/research/scratch_model_results.json"
 if os.path.exists(results_path):
     with open(results_path) as f:
         text_results = json.load(f)
@@ -113,7 +113,7 @@ print("\n" + "=" * 70)
 print("TEST 3: Verify Scaled Model (8L/256D)")
 print("=" * 70)
 
-scaled_path = "/home/z/my-project/research/scaled_scratch_results.json"
+scaled_path = "/my-project/research/scaled_scratch_results.json"
 if os.path.exists(scaled_path):
     with open(scaled_path) as f:
         scaled_results = json.load(f)
@@ -147,7 +147,7 @@ print("\n" + "=" * 70)
 print("TEST 4: Verify Code Model (CodeSearchNet data)")
 print("=" * 70)
 
-code_path = "/home/z/my-project/research/code_finetune_results.json"
+code_path = "/my-project/research/code_finetune_results.json"
 if os.path.exists(code_path):
     with open(code_path) as f:
         code_results = json.load(f)
@@ -197,7 +197,7 @@ print("\n" + "=" * 70)
 print("TEST 5: Load Saved Model and Verify")
 print("=" * 70)
 
-model_path = "/home/z/my-project/models/ibr_scratch_model.pt"
+model_path = "/my-project/models/ibr_scratch_model.pt"
 if os.path.exists(model_path):
     test("model_file_exists", True, f"{os.path.getsize(model_path)/1024/1024:.2f} MB")
 
@@ -275,7 +275,7 @@ print("\n" + "=" * 70)
 print("TEST 6: Load Code Model and Verify")
 print("=" * 70)
 
-code_model_path = "/home/z/my-project/models/ibr_code_model.pt"
+code_model_path = "/my-project/models/ibr_code_model.pt"
 if os.path.exists(code_model_path):
     test("code_model_file_exists", True,
          f"{os.path.getsize(code_model_path)/1024/1024:.2f} MB")
@@ -487,7 +487,7 @@ for test_name, test_data in RESULTS.items():
     print(f"  {status} {test_name.replace('test_', '')}{detail}")
 
 # Save results
-with open("/home/z/my-project/research/verification_results.json", "w") as f:
+with open("/my-project/research/verification_results.json", "w") as f:
     json.dump({
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "total_tests": PASSED + FAILED,
@@ -497,7 +497,7 @@ with open("/home/z/my-project/research/verification_results.json", "w") as f:
         "tests": RESULTS,
     }, f, indent=2)
 
-print(f"\nResults saved to: /home/z/my-project/research/verification_results.json")
+print(f"\nResults saved to: /my-project/research/verification_results.json")
 
 if FAILED == 0:
     print(f"\n🎉 ALL TESTS PASSED — From-scratch AI is working correctly!")
