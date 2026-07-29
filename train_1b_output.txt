@@ -1,0 +1,16 @@
+============================================================
+  IBR-GPT-Code-1B — Powerful Python Coder
+  Target: 1B-class | Golden Token Stack | Low Resource
+============================================================
+
+[1/7] Loading 1000+ code samples...
+  Cached: 1000 CodeSearchNet samples
+  Web scanning code: 10 patterns
+  Vulnerability code: 25 patterns
+  Total raw: 1035 samples
+
+[2/7] Cleaning + Deduplicating (Golden Token Stack)...
+  After cleaning: 1005 samples (removed 2 duplicates)
+  Total: 953,090 chars
+
+[3/7] Building BPE tokenizer (Golden Token: token compression)...
