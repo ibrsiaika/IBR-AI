@@ -89,6 +89,30 @@ class ArchitectureResponse(BaseModel):
     layers: list[dict[str, Any]]
 
 
+class GenerateRequest(BaseModel):
+    """Text generation request (from-scratch model)."""
+    prompt: str = Field(..., description="Input prompt")
+    max_new_tokens: int = Field(default=20, description="Max tokens to generate")
+    temperature: float = Field(default=0.7, ge=0.0, le=2.0)
+
+
+class GenerateResponse(BaseModel):
+    """Text generation response."""
+    text: str
+    prompt: str
+    tokens_generated: int
+    model: str
+    pretrained: bool = False
+
+
+class TrainRequest(BaseModel):
+    """Train the from-scratch model."""
+    texts: list[str] = Field(..., description="Training texts")
+    epochs: int = Field(default=10, ge=1, le=100)
+    learning_rate: float = Field(default=3e-4)
+    mode: str = Field(default="pretrain", description="pretrain or finetune")
+
+
 # ============================================
 # API Server Factory
 # ============================================
@@ -119,6 +143,9 @@ def create_app() -> FastAPI:
     # Initialize platform components
     orchestrator = TaskOrchestrator()
     memory_manager = MemoryManager()
+
+    # Initialize from-scratch model manager (lazy — model built on first train)
+    scratch_model: dict[str, Any] = {"mgr": None}
 
     # ============================================
     # Routes
@@ -275,6 +302,108 @@ def create_app() -> FastAPI:
             "total_requests": health.total_requests,
             "uptime_seconds": health.uptime_seconds,
         }
+
+    # ============================================
+    # Model Endpoints (From-Scratch AI)
+    # ============================================
+
+    @app.get("/api/v1/model/info")
+    async def model_info() -> dict[str, Any]:
+        """Get from-scratch model information."""
+        if scratch_model["mgr"] is None:
+            return {
+                "status": "not_trained",
+                "architecture": "ScratchGPT",
+                "pretrained": False,
+                "message": "Model not trained yet. POST to /api/v1/model/train to train.",
+            }
+        mgr = scratch_model["mgr"]
+        info = mgr.get_info()
+        return {"status": "trained", **info}
+
+    @app.post("/api/v1/model/generate", response_model=GenerateResponse)
+    async def generate_text(request: GenerateRequest) -> GenerateResponse:
+        """Generate text using the from-scratch model.
+
+        The model must be trained first via /api/v1/model/train.
+        NO pre-trained weights — this is a from-scratch model.
+        """
+        if scratch_model["mgr"] is None:
+            raise HTTPException(
+                status_code=400,
+                detail="Model not trained. POST to /api/v1/model/train first.",
+            )
+        mgr = scratch_model["mgr"]
+        text = mgr.generate(
+            prompt=request.prompt,
+            max_new_tokens=request.max_new_tokens,
+            temperature=request.temperature,
+        )
+        # Count generated tokens
+        prompt_tokens = len(mgr.tokenizer.encode(request.prompt))
+        all_tokens = len(mgr.tokenizer.encode(text))
+        tokens_generated = max(0, all_tokens - prompt_tokens)
+
+        return GenerateResponse(
+            text=text,
+            prompt=request.prompt,
+            tokens_generated=tokens_generated,
+            model="ScratchGPT",
+            pretrained=False,
+        )
+
+    @app.post("/api/v1/model/train")
+    async def train_model(request: TrainRequest) -> dict[str, Any]:
+        """Train the from-scratch model on provided texts.
+
+        NO pre-trained weights — the model is built from scratch and trained
+        on the provided data. All on CPU, all FREE.
+
+        Args:
+            texts: Training text data.
+            epochs: Number of training epochs.
+            learning_rate: Learning rate.
+            mode: 'pretrain' (build model from scratch) or 'finetune' (adapt existing).
+        """
+        from ibr_platform.models.scratch import ScratchModelManager
+
+        if request.mode == "finetune":
+            if scratch_model["mgr"] is None:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Cannot fine-tune — model not trained yet. Use mode=pretrain first.",
+                )
+            mgr = scratch_model["mgr"]
+            result = mgr.fine_tune(
+                texts=request.texts,
+                epochs=request.epochs,
+                learning_rate=request.learning_rate,
+            )
+            return {
+                "mode": "finetune",
+                "status": "complete",
+                **result,
+            }
+        else:
+            # Pretrain from scratch
+            mgr = ScratchModelManager(
+                embed_dim=128,
+                num_layers=4,
+                num_heads=4,
+                max_seq_len=128,
+                vocab_size=800,
+            )
+            result = mgr.pretrain(
+                texts=request.texts,
+                epochs=request.epochs,
+                learning_rate=request.learning_rate,
+            )
+            scratch_model["mgr"] = mgr
+            return {
+                "mode": "pretrain",
+                "status": "complete",
+                **result,
+            }
 
     return app
 
