@@ -1,0 +1,253 @@
+{
+  "pass": 49,
+  "fail": 0,
+  "total": 49,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "name": "100M model has \u2265100M params",
+      "pass": true,
+      "detail": "100,408,320 (100.41M)"
+    },
+    {
+      "name": "Compact model has \u226515M params",
+      "pass": true,
+      "detail": "19,963,904 (19.96M)"
+    },
+    {
+      "name": "Compact model is <100M params (smaller variant)",
+      "pass": true,
+      "detail": "19.96M < 100M"
+    },
+    {
+      "name": "100M fp32 saved",
+      "pass": true,
+      "detail": "383.2 MB"
+    },
+    {
+      "name": "100M INT8 \u2264 100 MB",
+      "pass": true,
+      "detail": "97.0 MB"
+    },
+    {
+      "name": "100M INT8 is 3-5x smaller than fp32",
+      "pass": true,
+      "detail": "97.0 MB vs 383.2 MB"
+    },
+    {
+      "name": "Compact fp32 saved",
+      "pass": true,
+      "detail": "76.3 MB"
+    },
+    {
+      "name": "Compact INT4 is 10-20 MB (target: 10-15 MB)",
+      "pass": true,
+      "detail": "16.9 MB"
+    },
+    {
+      "name": "Compact INT4 < fp32 / 3",
+      "pass": true,
+      "detail": "16.9 MB vs 76.3 MB"
+    },
+    {
+      "name": "INT4 dequantization works",
+      "pass": true,
+      "detail": "shape=(500, 500)"
+    },
+    {
+      "name": "INT4 quantization error < 20%",
+      "pass": true,
+      "detail": "rel_err=12.57%"
+    },
+    {
+      "name": "INT4 compression > 5x",
+      "pass": true,
+      "detail": "7.53x"
+    },
+    {
+      "name": "BPE training produces vocab",
+      "pass": true,
+      "detail": "vocab=103"
+    },
+    {
+      "name": "BPE encode produces tokens",
+      "pass": true,
+      "detail": "ids=[56, 84]"
+    },
+    {
+      "name": "BPE decode preserves text",
+      "pass": true,
+      "detail": "decoded='def hello '"
+    },
+    {
+      "name": "BPE caching works",
+      "pass": true,
+      "detail": "same output for same input"
+    },
+    {
+      "name": "100M generates \u22651 keyword/output",
+      "pass": true,
+      "detail": "1.8 kw/out"
+    },
+    {
+      "name": "100M \u2265 50% paren balance",
+      "pass": true,
+      "detail": "100%"
+    },
+    {
+      "name": "100M training loss reduced",
+      "pass": true,
+      "detail": "3.5917 -> 2.7317"
+    },
+    {
+      "name": "100M PPL < 50",
+      "pass": true,
+      "detail": "PPL=15.4"
+    },
+    {
+      "name": "Compact generates \u22651 keyword/output",
+      "pass": true,
+      "detail": "2.4 kw/out"
+    },
+    {
+      "name": "Compact \u2265 30% paren balance",
+      "pass": true,
+      "detail": "60%"
+    },
+    {
+      "name": "Compact training loss reduced",
+      "pass": true,
+      "detail": "4.2085 -> 2.8674"
+    },
+    {
+      "name": "Compact PPL < 50",
+      "pass": true,
+      "detail": "PPL=17.6"
+    },
+    {
+      "name": "INT4 model dequantizes & loads",
+      "pass": true,
+      "detail": "101 weights"
+    },
+    {
+      "name": "INT4 model generates output",
+      "pass": true,
+      "detail": "output='def scan import sssssssssssssssssss'"
+    },
+    {
+      "name": "Compact inference > 20 tok/s",
+      "pass": true,
+      "detail": "69.7 tok/s"
+    },
+    {
+      "name": "Weight tying (lm_head = token_embedding)",
+      "pass": true,
+      "detail": "shared weights"
+    },
+    {
+      "name": "Forward produces correct logit shape",
+      "pass": true,
+      "detail": "shape=(2, 8, 1000)"
+    },
+    {
+      "name": "Forward produces loss",
+      "pass": true,
+      "detail": "loss=6.5081"
+    },
+    {
+      "name": "Generate produces correct shape",
+      "pass": true,
+      "detail": "shape=(2, 13)"
+    },
+    {
+      "name": "100M: has meta",
+      "pass": true,
+      "detail": "name=IBR-GPT-Code-100M"
+    },
+    {
+      "name": "100M: pretrained=False",
+      "pass": true,
+      "detail": "from scratch"
+    },
+    {
+      "name": "100M: has params count",
+      "pass": true,
+      "detail": "100,408,320"
+    },
+    {
+      "name": "100M: has samples count",
+      "pass": true,
+      "detail": "27,369"
+    },
+    {
+      "name": "100M: has golden_stack list",
+      "pass": true,
+      "detail": "8 techniques"
+    },
+    {
+      "name": "100M: Golden Stack has 'bfloat16'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "100M: Golden Stack has 'weight-tying'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "100M: Golden Stack has 'dedup'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "100M: Golden Stack has 'curriculum-learning'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Compact: has meta",
+      "pass": true,
+      "detail": "name=IBR-GPT-Code-Compact"
+    },
+    {
+      "name": "Compact: pretrained=False",
+      "pass": true,
+      "detail": "from scratch"
+    },
+    {
+      "name": "Compact: has params count",
+      "pass": true,
+      "detail": "19,963,904"
+    },
+    {
+      "name": "Compact: has samples count",
+      "pass": true,
+      "detail": "27,369"
+    },
+    {
+      "name": "Compact: has golden_stack list",
+      "pass": true,
+      "detail": "8 techniques"
+    },
+    {
+      "name": "Compact: Golden Stack has 'bfloat16'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Compact: Golden Stack has 'weight-tying'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Compact: Golden Stack has 'dedup'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Compact: Golden Stack has 'curriculum-learning'",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

@@ -212,3 +212,6 @@ temp/
 yarn.lock
 pnpm-lock.yaml
 # Note: keep package-lock.json and poetry.lock committed
+# Add big data file to gitignore (regenerate via scripts/download_more_data.py)
+research/big_code_dataset.json
+research/_codeparrot_*.parquet
