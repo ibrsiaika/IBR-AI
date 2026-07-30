@@ -38,6 +38,7 @@ torch.set_num_threads(2)
 MODEL_FILES = {
     '100m': MODELS_DIR / "ibr_gpt_code_100m.pt",
     '100m_int8': MODELS_DIR / "ibr_gpt_code_100m_int8.pt",
+    '100m_ft': MODELS_DIR / "ibr_gpt_code_100m_finetuned.pt",
     'compact': MODELS_DIR / "ibr_gpt_code_compact.pt",
     'compact_int4': MODELS_DIR / "ibr_gpt_code_compact_int4.pt",
 }
