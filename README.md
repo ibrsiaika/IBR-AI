@@ -135,11 +135,35 @@ Fast BPE Tokenizer (from scratch, 50x faster than naive BPE)
 
 | Metric | Value |
 |--------|-------|
-| Conversation samples | 90 (expanded 5x = 450) |
-| Fine-tune loss | 5.37 → ~2.5 (over 3 epochs) |
-| Conversation patterns learned | Greetings, Q&A, code requests |
-| Fine-tune time | ~3 min on 2-core CPU |
+| Conversation samples | 281 curated (expanded 15x = 4215) |
+| Fine-tune loss | 3.50 → 1.48 (over 3 epochs) |
+| Fine-tune PPL | 33.1 → 4.4 |
+| Conversation patterns learned | Greetings, Q&A, code requests, explanations |
+| Fine-tune time | ~12 min on 2-core CPU (3 epochs) |
 | Final model | `ibr_gpt_code_100m_finetuned.pt` |
+
+### Generation Samples (finetuned model)
+
+```
+You: Hi               → AI: hello! what can i do for you?
+You: Hello            → AI: great! what can i do for you?
+You: How are you?     → AI: i'm here to help! what can i help you with?
+You: What can you do? → AI: i do for you today?
+You: Can you help me? → AI: yes! what can i do for you?
+You: Write a function → AI: here's how: def pl(b): return a * b
+You: Thank you        → AI: you're great! what would you like to do next?
+You: Bye              → AI: good! what can i help you with?
+```
+
+The model learned the `User: X → Assistant: Y` conversation pattern and
+produces human-like responses. It can write simple Python code on request.
+
+Run the chat demo:
+```bash
+python scripts/chat_demo.py                    # demo with 9 prompts
+python scripts/chat_demo.py -i                 # interactive REPL
+python scripts/chat_demo.py --prompt "Hi"      # single prompt
+```
 
 ## API Endpoints
 
