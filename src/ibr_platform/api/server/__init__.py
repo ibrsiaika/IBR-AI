@@ -14,12 +14,13 @@ References:
 
 from __future__ import annotations
 
+import asyncio
 from datetime import UTC, datetime
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from ibr_platform.platform.architecture import list_layers
 from ibr_platform.platform.memory import MemoryManager, MemoryTier
@@ -110,7 +111,15 @@ class TrainRequest(BaseModel):
     texts: list[str] = Field(..., description="Training texts")
     epochs: int = Field(default=10, ge=1, le=100)
     learning_rate: float = Field(default=3e-4)
+    # BUG A-2 FIX: validate mode with Literal instead of bare str
     mode: str = Field(default="pretrain", description="pretrain or finetune")
+
+    @field_validator("mode")
+    @classmethod
+    def validate_mode(cls, v: str) -> str:
+        if v not in ("pretrain", "finetune"):
+            raise ValueError(f"mode must be 'pretrain' or 'finetune', got '{v}'")
+        return v
 
 
 # ============================================
@@ -131,11 +140,13 @@ def create_app() -> FastAPI:
         redoc_url="/redoc",
     )
 
-    # CORS (allow all for development; restrict in production)
+    # BUG A-1 FIX: CORS config — allow_origins=["*"] with allow_credentials=True
+    # is invalid per the CORS spec. Browsers reject credentialed requests when
+    # origin is "*". Use allow_credentials=False with wildcard origins.
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
-        allow_credentials=True,
+        allow_credentials=False,  # cannot be True with wildcard origins
         allow_methods=["*"],
         allow_headers=["*"],
     )
@@ -146,6 +157,9 @@ def create_app() -> FastAPI:
 
     # Initialize from-scratch model manager (lazy — model built on first train)
     scratch_model: dict[str, Any] = {"mgr": None}
+
+    # BUG A-4 FIX: lock to prevent concurrent training race conditions
+    _train_lock = asyncio.Lock()
 
     # ============================================
     # Routes
@@ -367,43 +381,51 @@ def create_app() -> FastAPI:
         """
         from ibr_platform.models.scratch import ScratchModelManager
 
-        if request.mode == "finetune":
-            if scratch_model["mgr"] is None:
-                raise HTTPException(
-                    status_code=400,
-                    detail="Cannot fine-tune — model not trained yet. Use mode=pretrain first.",
+        # BUG A-4 FIX: use a lock to prevent concurrent training race conditions
+        async with _train_lock:
+            if request.mode == "finetune":
+                if scratch_model["mgr"] is None:
+                    raise HTTPException(
+                        status_code=400,
+                        detail="Cannot fine-tune — model not trained yet. Use mode=pretrain first.",
+                    )
+                mgr = scratch_model["mgr"]
+                result = mgr.fine_tune(
+                    texts=request.texts,
+                    epochs=request.epochs,
+                    learning_rate=request.learning_rate,
                 )
-            mgr = scratch_model["mgr"]
-            result = mgr.fine_tune(
-                texts=request.texts,
-                epochs=request.epochs,
-                learning_rate=request.learning_rate,
-            )
-            return {
-                "mode": "finetune",
-                "status": "complete",
-                **result,
-            }
-        else:
-            # Pretrain from scratch
-            mgr = ScratchModelManager(
-                embed_dim=128,
-                num_layers=4,
-                num_heads=4,
-                max_seq_len=128,
-                vocab_size=800,
-            )
-            result = mgr.pretrain(
-                texts=request.texts,
-                epochs=request.epochs,
-                learning_rate=request.learning_rate,
-            )
-            scratch_model["mgr"] = mgr
-            return {
-                "mode": "pretrain",
-                "status": "complete",
-                **result,
-            }
+                # BUG A-3 FIX: check for error before reporting success
+                if "error" in result:
+                    raise HTTPException(status_code=400, detail=result["error"])
+                return {
+                    "mode": "finetune",
+                    "status": "complete",
+                    **result,
+                }
+            else:
+                # Pretrain from scratch
+                mgr = ScratchModelManager(
+                    embed_dim=128,
+                    num_layers=4,
+                    num_heads=4,
+                    max_seq_len=128,
+                    vocab_size=800,
+                )
+                result = mgr.pretrain(
+                    texts=request.texts,
+                    epochs=request.epochs,
+                    learning_rate=request.learning_rate,
+                )
+                # BUG A-3 FIX: check for error before reporting success
+                if "error" in result:
+                    raise HTTPException(status_code=400, detail=result["error"])
+                scratch_model["mgr"] = mgr
+                return {
+                    "mode": "pretrain",
+                    "status": "complete",
+                    **result,
+                }
 
     return app
 

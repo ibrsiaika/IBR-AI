@@ -1,7 +1,9 @@
 """Tests for From-Scratch AI (ScratchGPT — NO pre-trained weights)."""
 from __future__ import annotations
 import pytest
-import torch
+# BUG T-1 FIX: use importorskip so the test module doesn't crash collection
+# if torch (an optional [ml] extra) is not installed.
+torch = pytest.importorskip("torch")
 
 
 class TestBPETokenizer:

@@ -269,8 +269,11 @@ class MemoryManager:
                 if query_lower in entry.content.lower():
                     results.append(entry)
 
-        # Sort by relevance (access_count desc, then updated_at desc)
-        results.sort(key=lambda e: (-e.access_count, e.updated_at), reverse=False)
+        # BUG O-1 FIX: sort by access_count desc, then updated_at desc
+        # The old code used (-access_count, updated_at) with reverse=False,
+        # which sorted access_count desc but updated_at ASC (oldest first).
+        # Using reverse=True with (access_count, updated_at) makes both desc.
+        results.sort(key=lambda e: (e.access_count, e.updated_at), reverse=True)
         return results[:top_k]
 
     async def update(

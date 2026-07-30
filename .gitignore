@@ -147,9 +147,11 @@ datasets/
 *.arrow
 !tests/fixtures/*.csv
 
-# Model files (never commit models)
-models/
-checkpoints/
+# Model weight files (never commit trained model weights)
+# BUG FIX: use leading slash to only match top-level /models/ directory,
+# not src/ibr_platform/models/ (which is a Python package).
+/models/
+/checkpoints/
 *.pt
 *.pth
 *.bin
