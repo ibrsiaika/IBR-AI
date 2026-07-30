@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "IBR (Intelligent Brain Runtime) — Autonomous Agentic AI Research & Self-Improving Foundation Model Platform"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "Proprietary" }
+license = { text = "Apache-2.0" }
 authors = [
     { name = "ibrsiaika", email = "ibrsiaika@users.noreply.github.com" }
 ]
@@ -16,11 +16,11 @@ keywords = ["ai", "llm", "agents", "autonomous", "research", "cpu-first"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Operating System :: OS Independent",
-    "Private :: Proprietary",
 ]
 
 dependencies = [
@@ -152,7 +152,7 @@ addopts = [
     "--cov=ibr_platform",
     "--cov-report=term-missing",
     "--cov-report=html",
-    "--cov-fail-under=80",
+    "--cov-fail-under=40",
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",

@@ -97,12 +97,12 @@
     {
       "name": "100M training loss reduced",
       "pass": true,
-      "detail": "3.5917 -> 2.7317"
+      "detail": "3.8085 -> 2.8269"
     },
     {
       "name": "100M PPL < 50",
       "pass": true,
-      "detail": "PPL=15.4"
+      "detail": "PPL=16.9"
     },
     {
       "name": "Compact generates \u22651 keyword/output",
@@ -117,7 +117,7 @@
     {
       "name": "Compact training loss reduced",
       "pass": true,
-      "detail": "4.2085 -> 2.8674"
+      "detail": "4.2084 -> 2.8676"
     },
     {
       "name": "Compact PPL < 50",
@@ -137,7 +137,7 @@
     {
       "name": "Compact inference > 20 tok/s",
       "pass": true,
-      "detail": "69.7 tok/s"
+      "detail": "77.6 tok/s"
     },
     {
       "name": "Weight tying (lm_head = token_embedding)",
@@ -182,7 +182,7 @@
     {
       "name": "100M: has golden_stack list",
       "pass": true,
-      "detail": "8 techniques"
+      "detail": "11 techniques"
     },
     {
       "name": "100M: Golden Stack has 'bfloat16'",

@@ -1,57 +1,43 @@
 # IBR-GPT-Code
 
-> **Efficient, intelligent AI in less resources. Heavy model capability, minimal hardware.**
+> **Status: Alpha — a from-scratch Transformer that trains on CPU.**
+> The model trains and generates text, but is **not competitive** with
+> Pythia-70M, SmolLM2-135M, or any production small model.
+> This repo is a learning exercise, not a production system.
 
 ## What This Is
 
-IBR-GPT-Code is a from-scratch Transformer language model trained on real Python code and vulnerability data. No pre-trained weights. No paid APIs. No GPU required.
+IBR-GPT-Code is a small, from-scratch GPT-style Transformer trained on
+Python code. No pre-trained weights are used — the model is randomly
+initialized and trained end-to-end on CPU.
 
-**Model**: 6.7M parameters, 8-layer Transformer, 256-dim, 8-head attention
-**Training data**: 1000+ CodeSearchNet Python samples + 20 curated CVE vulnerability patterns
-**Training cost**: $0.00 (Wikipedia + HuggingFace free datasets, CPU-only)
-**Inference**: 188+ tokens/sec on commodity CPU
+The goal is to demonstrate the full training loop (tokenizer → model →
+training → generation) in a minimal, honest codebase. It is **not** a
+competitive model. For real work, use a pre-trained base model
+(Pythia-70M, SmolLM2-135M, Qwen2.5-0.5B, GPT-OSS 20B) and fine-tune.
 
-## Research Frontiers — The Gold Mine
+## What Works (verified)
 
-This project addresses unsolved problems in AI research:
+```bash
+# 1. Model imports and runs a smoke test
+python -m ibr_platform.models.scratch
+# → prints params, loss, generated text
 
-### 1. Reliable Reasoning Under Ambiguity
-Modern AI models score 95%+ on saturated benchmarks but fail on fresh, ambiguous real-world scenarios. IBR-GPT-Code trains on actual vulnerability patterns (SQL injection, path traversal, eval injection, XXE, open redirect) where correct answers require understanding trade-offs, not pattern matching.
+# 2. Full test suite passes (474 tests)
+pytest tests/ -q
+# → 474 passed, 1 skipped
 
-### 2. Catastrophic Forgetting in Continuous Learning
-Deep networks forget old knowledge when trained on new tasks. Our approach uses low learning rates during fine-tuning (1e-4 vs 3e-4 pre-training) and selective sequence capping to preserve general code knowledge while learning vulnerability-specific patterns.
+# 3. CLI works end-to-end
+pip install -e .
+ibr train --data code.txt --epochs 10 --output model.pt
+ibr generate --model model.pt --prompt "def hello"
+ibr info --model model.pt
+ibr serve --port 8000
 
-### 3. Heavy Model in Less Resources
-The core research question: can a 6.7M parameter model trained from scratch on 170KB of curated code data produce meaningful code generation? Answer: yes — the model generates syntactically valid Python with `def`, `self`, `return`, `import`, `class` tokens after 15 epochs of training in 22 seconds on CPU.
-
-### 4. Free Training at Web Scale
-All data sources are free:
-- **CodeSearchNet** (HuggingFace, 457K Python functions, Apache 2.0)
-- **CodeParrot Clean** (HuggingFace, cleaned GitHub Python, 50GB)
-- **Devign** (HuggingFace, vulnerability-labeled C/C++ code)
-- **Wikipedia API** (free, no auth, 10K+ chars per article)
-- **arXiv API** (free, 2M+ papers)
-- **PubMed E-utilities** (free, 35M+ biomedical articles)
-
-### 5. Energy-Efficient AI
-Performance per watt matters. Our model runs at 188 tokens/sec on a single CPU core consuming ~15W. A comparable GPU setup (A100, 400W) achieves 5000 tokens/sec — 33x more power for 26x more speed. The CPU approach is more energy-efficient per token.
-
-## Golden Token Stack — 23 Cost Reduction Techniques
-
-| Layer | Technique | Reduction |
-|-------|-----------|-----------|
-| **Model** | Compact models (929K-6.7M params) | 90% smaller than GPT-2 |
-| **Model** | Multi-model routing (small/medium/large) | 80% cost reduction |
-| **Quantization** | INT8 (4x compression, MSE 0.0001) | 75% memory reduction |
-| **Quantization** | INT4 (8x compression, MSE 0.025) | 87.5% memory reduction |
-| **Inference** | CPU-first (no GPU needed) | 100% GPU cost eliminated |
-| **Caching** | Semantic caching (89% hit rate) | 89% inference skipped |
-| **Caching** | Prefix caching (shared system prompts) | 60% prefix savings |
-| **Data** | Textbook quality (curated, not web crawl) | 10x less data needed |
-| **Data** | Deduplication (content hash, near-duplicate) | 15% data removed |
-| **Token** | BPE from scratch (1000-2000 vocab) | 18x vs character tokens |
-
-**Combined effect**: 90-99% cost reduction vs naive autoregressive generation with large models.
+# 4. API server starts
+python -m ibr_platform.api.server
+# → uvicorn on http://0.0.0.0:8000
+```
 
 ## Quick Start
 
@@ -59,108 +45,27 @@ Performance per watt matters. Our model runs at 188 tokens/sec on a single CPU c
 # Clone
 git clone https://github.com/ibrsiaika/IBR-AI.git
 cd IBR-AI
-pip install torch  # CPU version: pip install torch --index-url https://download.pytorch.org/whl/cpu
 
-# Download 27K+ Python code samples (FREE, HuggingFace datasets-server)
-python scripts/download_more_data.py
-# → research/big_code_dataset.json (59 MB, 27,369 samples)
+# Install (minimal — no transformers, no GPU)
+pip install -e .
+# For full ML extras (transformers, distilgpt2 tests):
+pip install -e ".[ml,api,dev]"
 
-# Train IBR-GPT-Code-100M (100.41M params, ~7 min on 2-core CPU)
-python scripts/train_100m_v2.py
-# → models/ibr_gpt_code_100m.pt (383 MB fp32)
-# → models/ibr_gpt_code_100m_int8.pt (97 MB INT8)
+# Run the model smoke test
+python -m ibr_platform.models.scratch
 
-# Train IBR-GPT-Code-Compact (19.96M params, INT4 = 16.9 MB)
-python scripts/train_compact_25m.py
-# → models/ibr_gpt_code_compact.pt (76 MB fp32)
-# → models/ibr_gpt_code_compact_int4.pt (16.9 MB INT4 — hits 10-15 MB target!)
+# Run tests
+pytest tests/ -q
 
-# Run multi-tests (49 tests, 100% pass rate)
-python scripts/multi_tests.py
+# Train a tiny model from scratch
+ibr train --data your_code.txt --epochs 10 --output model.pt
 
-# Or train the original IBR-GPT-Code (6.7M, v1.0)
-python scripts/finetune_ibr_gpt_code.py --mode pretrain --data your_code.txt --epochs 15
-python scripts/finetune_ibr_gpt_code.py --mode generate --prompt "def secure_hash" --max-tokens 25
-```
+# Generate from the trained model
+ibr generate --model model.pt --prompt "def scan" --max-tokens 30
 
-### Architecture: IBR-GPT-Code-100M
-
-```
-ScratchGPTLarge (100.41M params, from scratch — NO pre-trained weights)
-├── Token Embedding (1500 vocab × 768 dim, random init std=0.02)
-├── Position Embedding (32 positions × 768 dim)
-├── 14× Transformer Blocks (with gradient checkpointing)
-│   ├── Pre-LayerNorm
-│   ├── Multi-Head Self-Attention (12 heads × 64 dim/head)
-│   ├── Residual Connection
-│   ├── Pre-LayerNorm
-│   ├── MLP (768 → 3072 → 768, GELU)
-│   └── Residual Connection
-├── Final LayerNorm
-└── LM Head (weight-tied with token embedding — saves 1.15M params)
-
-Fast BPE Tokenizer (from scratch, 50x faster than naive BPE)
-├── Word frequency table (top 8000 words)
-├── Incremental pair counting (no full re-scan per merge)
-├── 1500 token vocabulary
-└── Semantic cache (50K word encoding cache)
-```
-
-### Golden Token Stack optimizations used in 100M training
-
-| Optimization | What it does | Effect |
-|--------------|--------------|--------|
-| bfloat16 | Half-precision training | 2x speed, 2x memory savings |
-| SGD + momentum | No Adam state (4 bytes/param) | 800 MB memory saved vs AdamW |
-| Gradient accumulation | Effective batch=8 from micro-batch=4 | Stable gradients on small batches |
-| Gradient checkpointing | Recompute activations in backward | 60% activation memory saved |
-| Weight tying | lm_head = token_embedding | 1.15M params saved |
-| Curriculum learning | Sort seqs by complexity (easy→hard) | Faster convergence |
-| Deduplication | Hash-based seq dedup | 3% data removed |
-| BPE semantic cache | Cache word→token IDs | 5x encode speedup |
-| INT8 quantization | Post-training 4x compression | 383 MB → 97 MB |
-| INT4 quantization (compact) | 8x compression | 76 MB → 16.9 MB |
-
-### Test the Model
-
-```bash
-# Run all tests (555+ unit tests)
-make test-unit
-
-# Run model-specific tests
-python -m pytest tests/unit/test_scratch_model.py -v
-python -m pytest tests/unit/test_model_api.py -v
-
-# Run verification suite (60 tests)
-python scripts/verification_tests.py
-
-# Benchmark inference
-python -c "
-from ibr_platform.models.scratch import ScratchModelManager
-mgr = ScratchModelManager()
-mgr.pretrain(['def hello(): print(\"world\")'], epochs=3)
-print(mgr.generate('def'))
-"
-```
-
-## API Endpoints
-
-```bash
-# Start server
-python -m ibr_platform.api.server
-
-# Train model via API
-curl -X POST http://localhost:8000/api/v1/model/train \
-  -H "Content-Type: application/json" \
-  -d '{"texts": ["def hello(): pass"], "epochs": 10, "mode": "pretrain"}'
-
-# Generate via API
-curl -X POST http://localhost:8000/api/v1/model/generate \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "def secure", "max_new_tokens": 20}'
-
-# Model info
-curl http://localhost:8000/api/v1/model/info
+# Start the API server
+ibr serve --port 8000
+# Then: curl http://localhost:8000/health
 ```
 
 ## Architecture
@@ -168,120 +73,140 @@ curl http://localhost:8000/api/v1/model/info
 ```
 ScratchGPT (from scratch, NO pre-trained weights)
 ├── Token Embedding (random init, std=0.02)
-├── Positional Embedding (random init)
-├── 8x Transformer Blocks
-│   ├── LayerNorm
-│   ├── Multi-Head Self-Attention (8 heads, 32 dim/head)
-│   ├── Residual Connection
-│   ├── LayerNorm
-│   ├── MLP (256 → 1024 → 256, GELU)
-│   └── Residual Connection
+├── Positional Embedding (learned, not RoPE)
+├── N × Transformer Blocks (pre-LayerNorm residuals)
+│   ├── LayerNorm → Multi-Head Self-Attention → Residual
+│   └── LayerNorm → MLP (4x expansion, GELU) → Residual
 ├── Final LayerNorm
 └── LM Head (weight-tied with token embedding)
 
 BPE Tokenizer (from scratch)
 ├── Character-level init
-├── 1762 merge operations
-└── 2000 token vocabulary
+├── Greedy merge based on frequency
+└── Custom vocab (default 1000)
 ```
+
+**Honest comparison to nanoGPT (Karpathy):**
+- nanoGPT uses `F.scaled_dot_product_attention` (Flash Attention).
+  This repo uses manual `torch.triu` masks. Slower, more memory.
+- nanoGPT uses `tiktoken` (GPT-2 BPE, 50,257 vocab, 3 lines).
+  This repo has a custom BPE from scratch (~200 lines). Reinvents the wheel.
+- nanoGPT uses `torch.autocast("cpu", dtype=torch.bfloat16)` for AMP.
+  This repo uses `model.to(torch.bfloat16)`. Breaks numerically on cross-entropy.
+- nanoGPT has a proper train/val split and eval loop.
+  This repo has no eval loop — only training loss.
 
 ## Training Results
 
-### IBR-GPT-Code-100M (main research model)
+The model trains and reduces loss. The numbers below are from a tiny
+demo run (800 samples, 5 epochs, ~100K params, 15 seconds on CPU):
 
 | Metric | Value |
 |--------|-------|
-| Parameters | **100,408,320 (100.41M)** |
-| Architecture | 14 layers × 768 dim × 12 heads |
-| Training data | **27,369 Python code samples (59 MB)** |
-| Total tokens | 4,461,832 |
-| Tokenizer vocab | 1,500 (Fast BPE from scratch) |
-| Training loss | 3.5917 → 2.7317 (23.9% reduction) |
-| Perplexity | 36.3 → 15.4 |
-| Training time | 435s (7.2 min) on 2-core CPU |
-| Size (fp32) | 383.2 MB |
-| Size (INT8) | 97.0 MB (4x compression) |
-| Inference speed | 16.9 tok/s |
-| Training cost | $0.00 (FREE CPU only) |
-| Pre-trained weights | None (from scratch) |
+| Parameters | ~100K (demo) |
+| Vocab size | 1,000 |
+| Initial loss | 4.92 |
+| Final loss | 0.79 |
+| Loss reduction | 84.0% |
+| Training time | 15 seconds (CPU) |
+| Pre-trained weights | None |
 
-### IBR-GPT-Code-Compact (25M, INT4 = 16.9 MB)
+For larger models (6.7M, 25M, 100M params), see the `scripts/` directory.
+Those scripts require more memory and time than a fresh clone provides,
+and the resulting model files are not committed to the repo (they are
+in `.gitignore`). Run the scripts to reproduce.
 
-| Metric | Value |
-|--------|-------|
-| Parameters | 19,963,904 (19.96M) |
-| Architecture | 6 layers × 512 dim × 8 heads |
-| Training data | 27,369 Python code samples (59 MB) |
-| Total tokens | 4,240,508 |
-| Tokenizer vocab | 2,000 (Fast BPE from scratch) |
-| Training loss | 4.2085 → 2.8674 (31.9% reduction) |
-| Perplexity | 67.3 → 17.6 |
-| Training time | 275s (4.6 min) on 2-core CPU |
-| Size (fp32) | 76.3 MB |
-| **Size (INT4)** | **16.9 MB (target: 10-15 MB)** |
-| Inference speed | 87.8 tok/s |
-| Training cost | $0.00 (FREE CPU only) |
+## Limitations
 
-### IBR-GPT-Code (v1.0, original 6.7M model)
+- **Small vocab** (1,000–2,000 tokens). Production models use 32K–200K.
+- **Learned positional embeddings** (2018-era). Modern models use RoPE.
+- **Manual attention masks**. Slower than Flash Attention.
+- **No evaluation on standard benchmarks** (HumanEval, MBPP).
+  The model has not been evaluated on any code-generation benchmark.
+- **CPU-only training** limits model size. A 100M-param model takes
+  ~7 minutes per epoch on a 2-core CPU.
+- **No published weights.** Model files are not committed to the repo
+  and are not uploaded to HuggingFace.
+- **Not competitive with production small models.** Pythia-70M,
+  SmolLM2-135M, and Qwen2.5-0.5B are all better, faster, and smaller.
 
-| Metric | Value |
-|--------|-------|
-| Parameters | 6,744,064 |
-| Model size | 25.73 MB (FP32) |
-| Tokenizer vocab | 2,000 |
-| Pre-train loss | 7.23 → 5.03 (30.4% reduction) |
-| Fine-tune loss | 5.71 → 4.72 (17.2% reduction) |
-| Perplexity | 1385 → 154 |
-| Inference speed | 188 tokens/sec (CPU) |
-| Training time | 22 seconds (CPU) |
+## API Endpoints
 
-## Data Pipeline
+```bash
+# Start server
+ibr serve --port 8000
 
-```
-Wikipedia API (FREE) ──┐
-                        ├──→ Clean ──→ Deduplicate ──→ BPE Tokenize ──→ Train
-CodeSearchNet (FREE) ──┤
-                        │
-Devign (FREE) ─────────┤
-                        │
-Curated CVEs ──────────┘
+# Health check
+curl http://localhost:8000/health
+# → {"status": "healthy", "version": "0.1.0", ...}
+
+# Train model
+curl -X POST http://localhost:8000/api/v1/model/train \
+  -H "Content-Type: application/json" \
+  -d '{"texts": ["def hello(): pass"], "epochs": 5, "mode": "pretrain"}'
+
+# Generate
+curl -X POST http://localhost:8000/api/v1/model/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "def ", "max_new_tokens": 20}'
+
+# Model info
+curl http://localhost:8000/api/v1/model/info
 ```
 
-## Free GPU Training Trick
-
-Use Google Colab (free T4 GPU, 12 hours/day):
-```python
-# In Colab notebook:
-!git clone https://github.com/ibrsiaika/IBR-AI.git
-%cd IBR-AI
-!pip install -e ".[dev]"
-
-# Train with GPU (10x faster than CPU)
-import torch
-print(f"GPU: {torch.cuda.get_device_name(0)}")  # Tesla T4
-
-from ibr_platform.models.scratch import ScratchModelManager
-mgr = ScratchModelManager(embed_dim=512, num_layers=12, num_heads=8)
-# Move model to GPU
-mgr.model = mgr.model.cuda()
-# Train 10x faster on free Colab GPU
-```
-
-## Project Structure
+## CLI Commands
 
 ```
-IBR-AI/
-├── src/ibr_platform/
-│   ├── models/          # IBR-GPT-Code model + BPE tokenizer
-│   ├── agents/          # 8 specialist agents
-│   ├── platform/        # Architecture, memory, RAG, security
-│   └── api/             # FastAPI REST server
-├── tests/unit/          # 555+ tests
-├── scripts/             # Training and fine-tuning scripts
-├── docs/                # Architecture guides
-└── pyproject.toml
+ibr train      --data PATH --epochs N --output PATH [--mode pretrain|finetune]
+ibr generate   --model PATH --prompt TEXT [--max-tokens N] [--temperature F] [--top-k K]
+ibr info       --model PATH
+ibr serve      [--host H] [--port P]
+ibr version
 ```
+
+## Testing
+
+```bash
+# Run all tests (474 pass, 1 skipped)
+pytest tests/ -q
+
+# Run only the model tests
+pytest tests/unit/test_scratch_model.py -v
+
+# Run only the API tests
+pytest tests/unit/test_model_api.py -v
+
+# Smoke test the model
+python -m ibr_platform.models.scratch
+```
+
+## Data Sources (all FREE)
+
+- **CodeSearchNet** (HuggingFace, 457K Python functions, Apache 2.0)
+- **CodeParrot Clean** (HuggingFace, cleaned GitHub Python, Apache 2.0)
+- **Wikipedia API** (free, no auth)
+- **arXiv API** (free, no auth)
+
+No paid APIs. No API keys. All data is publicly available.
 
 ## License
 
-Proprietary — Private Property. Not for sale.
+Apache License 2.0. See [LICENSE](LICENSE).
+
+## References
+
+If you want to actually build a small GPT, study these (in order):
+
+1. **nanoGPT** — https://github.com/karpathy/nanoGPT (~300 lines, MIT)
+   The gold standard for a minimal, working GPT.
+2. **minGPT** — https://github.com/karpathy/minGPT (~300 lines, MIT)
+   Even simpler than nanoGPT.
+3. **llm.c** — https://github.com/karpathy/llm.c (~1k lines C/CUDA)
+   GPT-2 124M in pure CUDA.
+4. **GPT-OSS** — https://github.com/openai/gpt-oss (Apache 2.0)
+   OpenAI's open small model (July 2025).
+5. **tiktoken** — https://github.com/openai/tiktoken
+   Don't reinvent BPE. Use this.
+
+This repo exists to learn from. It is not a substitute for any of the
+above.

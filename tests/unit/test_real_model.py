@@ -8,10 +8,18 @@ Run: pytest tests/unit/test_real_model.py -v --timeout=120
 
 Note: First run downloads the model (~313MB) and caches it.
 Subsequent runs use the cached version.
+
+These tests require the optional `transformers` and `torch` packages.
+Install with: pip install 'ibr-platform[ml]'
+If transformers is not installed, all tests in this module are skipped.
 """
 from __future__ import annotations
 
 import pytest
+
+# Skip entire module if transformers is not installed
+transformers = pytest.importorskip("transformers")
+torch = pytest.importorskip("torch")
 
 
 class TestRealModelManager:
